@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="bolgspider:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="bolgspider.war">
+      <element id="artifact" artifact-name="bolgspider:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,11 @@
+[INFO] [2017-03-3015:57:48][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@244038d0: startup date [Thu Mar 30 15:57:48 CST 2017]; root of context hierarchy
+[INFO] [2017-03-3015:57:48][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [resources/spring-mvc.xml]
+[INFO] [2017-03-3015:58:42][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@244038d0: startup date [Thu Mar 30 15:58:42 CST 2017]; root of context hierarchy
+[INFO] [2017-03-3015:58:42][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+[INFO] [2017-03-3015:58:42][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-03-3016:00:06][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@244038d0: startup date [Thu Mar 30 16:00:06 CST 2017]; root of context hierarchy
+[INFO] [2017-03-3016:00:06][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+[INFO] [2017-03-3016:00:06][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-03-3016:02:03][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@244038d0: startup date [Thu Mar 30 16:02:03 CST 2017]; root of context hierarchy
+[INFO] [2017-03-3016:02:03][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+[INFO] [2017-03-3016:02:04][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring

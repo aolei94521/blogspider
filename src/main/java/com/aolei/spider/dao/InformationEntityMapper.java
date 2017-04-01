@@ -2,23 +2,25 @@ package com.aolei.spider.dao;
 
 import com.aolei.spider.entity.InformationEntity;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public interface InformationEntityMapper {
     @Delete({
-        "delete from tb_news",
-        "where id = #{id,jdbcType=INTEGER}"
+            "delete from tb_news",
+            "where id = #{id,jdbcType=INTEGER}"
     })
     int deleteByPrimaryKey(Integer id);
 
     @Insert({
-        "insert into tb_news (url, ",
-        "title, time, readCount, ",
-        "recomment, pereview)",
-        "values (#{url,jdbcType=VARCHAR}, ",
-        "#{title,jdbcType=VARCHAR}, #{time,jdbcType=DATE}, #{readcount,jdbcType=VARCHAR}, ",
-        "#{recomment,jdbcType=VARCHAR}, #{pereview,jdbcType=LONGVARCHAR})"
+            "insert into tb_news (url, ",
+            "title, time, readCount, ",
+            "recomment, pereview)",
+            "values (#{url,jdbcType=VARCHAR}, ",
+            "#{title,jdbcType=VARCHAR}, #{time,jdbcType=DATE}, #{readcount,jdbcType=VARCHAR}, ",
+            "#{recomment,jdbcType=VARCHAR}, #{pereview,jdbcType=LONGVARCHAR})"
     })
     int insert(InformationEntity record);
 
@@ -58,8 +60,8 @@ public interface InformationEntityMapper {
     })
     int updateByPrimaryKey(InformationEntity record);*/
 
-    @Select("select * from tb_news where id=#{id}")
-    InformationEntity select(Integer id);
+//    @Select("select * from tb_news where id=#{id}")
+//    InformationEntity select(Integer id);
 
     @Select("select * from tb_news")
     List<InformationEntity> selectAll();

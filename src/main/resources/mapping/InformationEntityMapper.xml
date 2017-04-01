@@ -301,7 +301,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>-->
-  <!--<select id="select" parameterType="int" resultType="com.aolei.spider.entity.InformationEntity">
+  <select id="select" parameterType="int" resultType="com.aolei.spider.entity.InformationEntity">
     SELECT * FROM tb_news
-  </select>-->
+  </select>
 </mapper>

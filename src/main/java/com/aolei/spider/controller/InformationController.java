@@ -2,8 +2,6 @@ package com.aolei.spider.controller;
 
 import com.aolei.spider.entity.InformationEntity;
 import com.aolei.spider.service.CSDNIfService;
-import com.aolei.spider.service.CSDNInformationService;
-import com.aolei.spider.util.ResponseStatus;
 import com.aolei.spider.util.ReturnResultUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,8 +26,11 @@ public class InformationController extends BaseController {
     @RequestMapping(value = "showInfo", method = {RequestMethod.GET})
     public void get(HttpServletRequest request, HttpServletResponse response) {
         List<InformationEntity> list = service.getAllInformation();
-        System.out.println(list.size());
-        ReturnResultUtils.outWriteResult(response, list);
+        logger.debug("======================================"+list.size());
+        if (list != null && !list.isEmpty()){
+            ReturnResultUtils.outWriteResult(response, list);
+        }
+
     }
 
     @RequestMapping(value = "addInfo", method = {RequestMethod.GET})

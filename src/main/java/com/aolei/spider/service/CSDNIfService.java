@@ -5,7 +5,6 @@ import com.aolei.spider.entity.InformationEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -22,7 +21,7 @@ public class CSDNIfService extends BaseService {
     }
 
     public List<InformationEntity> getAllInformation() {
-        return null;
-        //return dao.selectAll();
+        //return null;
+        return dao.selectAll();
     }
 }

@@ -20,7 +20,7 @@
         <!--jdbc的数据库连接 -->
         <jdbcConnection
                 driverClass="com.mysql.jdbc.Driver"
-                connectionURL="jdbc:mysql://localhost:3308/csdn?characterEncoding=utf-8"
+                connectionURL="jdbc:mysql://localhost:3308/blog?characterEncoding=utf-8"
                 userId="root"
                 password="aolei">
         </jdbcConnection>
@@ -66,7 +66,17 @@
         </javaClientGenerator>
 
 
-        <table tableName="tb_news" domainObjectName="InformationEntity"
+        <!--<table tableName="tb_news" domainObjectName="InformationEntity"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table> -->
+        <table tableName="tb_user" domainObjectName="userEntity"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table tableName="tb_view_record" domainObjectName="viewRecordEntity"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

@@ -93,4 +93,6 @@ public class StringUtils {
     public static String addSingleQuotes(String param) {
         return "\'" + param + "\'";
     }
+
+
 }

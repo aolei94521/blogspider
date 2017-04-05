@@ -1,29 +1,40 @@
 package com.aolei.spider.test;
 
-import com.aolei.spider.service.CSDNIfService;
+import com.aolei.spider.entity.InformationEntity;
+import com.aolei.spider.service.CSDNInformationService;
+import com.aolei.spider.util.SpringContextUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/3/29.
  */
+
 public class Test{
     private static final Logger logger = LoggerFactory.getLogger(Test.class);
     public static void main(String args[]){
-        /*CSDNIfService cSDNIfService = SpringContextHolder.getBean(CSDNIfService.class);
-        if (cSDNIfService != null){
-            List<InformationEntity> list =  cSDNIfService.getAllInformation();
-            if (list!= null && !list.isEmpty()){
-                System.out.println("test");
-            }
-        }*/
-        /*AbstractApplicationContext app = new ClassPathXmlApplicationContext(new String[]{"classpath:\\spring-mvc.xml"});
-        CSDNInformationService csdnInformationService = (CSDNInformationService)app.getBean("CSDNInformationServiceImpl.class");
-        if (csdnInformationService.getAllInformation() == null || csdnInformationService.getAllInformation().isEmpty()){
-            System.out.println("sss");
+       /* CSDNInformationService csdnInformationService = SpringContextUtil.getBean("classpath:mybatis.xml");
+        List<InformationEntity> list = csdnInformationService.getAllInformation();
+        logger.debug("======================================"+list.size());*/
+        //ApplicationContext applicationContext = new FileSystemXmlApplicationContext("classpath:mybatis.xml");
+       /* AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:mybatis.xml");
+        CSDNInformationService service = (CSDNInformationService)applicationContext.getBean("CSDNInformationService");*/
+        CSDNInformationService service = SpringContextUtil.getBean("CSDNInformationService");
+        if (service != null){
+            logger.debug("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
         }
-        app.close();*/
-        CSDNIfService service = new CSDNIfService();
-        logger.debug(service.getAllInformation().size()+"================================");
+        List<InformationEntity> list = service.getAllInformation(1);
+        InformationEntity entity = new InformationEntity();
+        entity.setUrl("ssssssssssssss");
+        entity.setTime(new Date());
+        entity.setPereview("sdfsdf");
+        entity.setRecomment("dssfsd");
+        entity.setTitle("sdfsdf");
+        entity.setReadcount("sfdsdf");
+        service.addCSDNInformation(entity);
+        logger.debug("==============================================="+list.toString());
     }
 }

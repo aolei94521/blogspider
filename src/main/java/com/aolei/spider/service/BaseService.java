@@ -1,10 +1,12 @@
 package com.aolei.spider.service;
 
-import java.util.logging.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by chiv on 2017/4/1.
  */
 public abstract class BaseService {
-    protected final Logger logger = Logger.getLogger(this.getClass().getName());
+    protected final Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 }

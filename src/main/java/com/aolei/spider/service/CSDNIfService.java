@@ -22,6 +22,6 @@ public class CSDNIfService extends BaseService {
 
     public List<InformationEntity> getAllInformation() {
         //return null;
-        return dao.selectAll();
+        return dao.selectAllNews();
     }
 }

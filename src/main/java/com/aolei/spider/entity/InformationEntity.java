@@ -11,7 +11,7 @@ public class InformationEntity {
 
     private Date time;
 
-    private String readcount;
+    private String readCount;
 
     private String recomment;
 
@@ -22,7 +22,7 @@ public class InformationEntity {
         this.url = url;
         this.title = title;
         this.time = time;
-        this.readcount = readcount;
+        this.readCount = readcount;
         this.recomment = recomment;
         this.pereview = pereview;
     }
@@ -60,11 +60,11 @@ public class InformationEntity {
     }
 
     public String getReadcount() {
-        return readcount;
+        return readCount;
     }
 
     public void setReadcount(String readcount) {
-        this.readcount = readcount;
+        this.readCount = readcount;
     }
 
     public String getRecomment() {
@@ -90,7 +90,7 @@ public class InformationEntity {
                 ", url='" + url + '\'' +
                 ", title='" + title + '\'' +
                 ", time=" + time +
-                ", readcount='" + readcount + '\'' +
+                ", readcount='" + readCount + '\'' +
                 ", recomment='" + recomment + '\'' +
                 ", pereview='" + pereview + '\'' +
                 '}';

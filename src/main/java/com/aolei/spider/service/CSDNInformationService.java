@@ -10,7 +10,10 @@ import java.util.List;
  */
 @Service
 public interface CSDNInformationService {
+
     void addCSDNInformation(InformationEntity entity);
 
     List<InformationEntity> getAllInformation();
+
+    List<InformationEntity> getInformationList(int start,int count);
 }

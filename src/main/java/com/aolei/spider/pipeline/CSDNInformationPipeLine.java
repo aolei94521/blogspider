@@ -21,7 +21,6 @@ public class CSDNInformationPipeLine extends CommonLoggerUtil implements Pipelin
         List<InformationEntity> informationEntities = resultItems.get("informationEntities");
         if (informationEntities != null && !informationEntities.isEmpty()){
             for (InformationEntity informationEntity: informationEntities) {
-                System.out.println(informationEntity.toString());
                 service.addCSDNInformation(informationEntity);
             }
         }

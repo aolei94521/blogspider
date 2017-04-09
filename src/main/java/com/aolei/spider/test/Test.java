@@ -26,7 +26,7 @@ public class Test{
         if (service != null){
             logger.debug("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
         }
-        List<InformationEntity> list = service.getAllInformation(1);
+        List<InformationEntity> list = service.getAllInformation();
         InformationEntity entity = new InformationEntity();
         entity.setUrl("ssssssssssssss");
         entity.setTime(new Date());

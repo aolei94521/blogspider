@@ -2,6 +2,8 @@ package com.aolei.spider.controller;
 
 import com.aolei.spider.entity.InformationEntity;
 import com.aolei.spider.service.CSDNInformationService;
+import com.aolei.spider.util.CommonStaticValue;
+import com.aolei.spider.util.CommonUtils;
 import com.aolei.spider.util.NumberUtils;
 import com.aolei.spider.util.ReturnResultUtils;
 import org.springframework.stereotype.Controller;
@@ -29,6 +31,8 @@ public class InformationController extends BaseController {
         logger.debug("======================================"+list.size());
         if (list != null && !list.isEmpty()){
             ReturnResultUtils.outWriteResult(response, list);
+        }else{
+            ReturnResultUtils.outWriteResult(response,list,"您查询的数据为空");
         }
 
     }
@@ -51,14 +55,17 @@ public class InformationController extends BaseController {
           int count = NumberUtils.toInt(request.getParameter("count"));
           logger.debug("================================"+start+"==="+count);
           List<InformationEntity> informationEntities = service.getInformationList(start,count);
-          if (informationEntities != null && !informationEntities.isEmpty()){
-              int size = informationEntities.size();
-              int nextStart = informationEntities.get(size - 1).getId();
-              if (informationEntities.size() < count){
-                  ReturnResultUtils.outWriteResultList(response,0,nextStart,informationEntities);
-              }else{
-                  ReturnResultUtils.outWriteResultList(response,1,nextStart,informationEntities);
-              }
+            /**将数据返回**/
+          if (!CommonUtils.listIsEmputyOrNull(informationEntities)){
+            int size = informationEntities.size();
+            int nextStart = informationEntities.get(size - 1).getId();
+            if (informationEntities.size() < count){
+                ReturnResultUtils.outWriteResultList(response, CommonStaticValue.NOMORE,nextStart,informationEntities);
+            }else{
+                ReturnResultUtils.outWriteResultList(response,CommonStaticValue.HASMORE,nextStart,informationEntities);
+            }
+        }else{
+              ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"您查询的数据为空");
           }
     }
 }

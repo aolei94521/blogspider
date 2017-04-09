@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aolei.spider.dao.TuiKuEntityMapper">
+
+
+  <insert id="insertSelective" parameterType="com.aolei.spider.entity.TuiKuEntity">
+    insert into tb_tuiku
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+
+      <if test="title != null">
+        title,
+      </if>
+      <if test="auther != null">
+        auther,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="imgurl != null">
+        imgUrl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="auther != null">
+        #{auther,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="imgurl != null">
+        #{imgurl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <!--查询所有的TuiKu数据-->
+  <select id="getAllTuiKu" resultType="com.aolei.spider.entity.TuiKuEntity">
+    SELECT *  FROM tb_tuiku
+  </select>
+    <!--#{0}代表第一个参数，#{1}代表第二个参数-->
+    <!--查询一定数量的TuiKu信息，分页用-->
+    <select id="getTuiKuList"  resultType="com.aolei.spider.entity.TuiKuEntity">
+        SELECT * FROM tb_tuiku WHERE id > #{0} LIMIT #{1}
+    </select>
+</mapper>

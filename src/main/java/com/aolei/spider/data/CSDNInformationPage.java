@@ -23,14 +23,14 @@ public class CSDNInformationPage extends CommonLoggerUtil implements PageProcess
         page.addTargetRequests(page.getHtml().css("div.page_nav").links().all());
         List<String> valueList = page.getHtml().xpath("div[@class='unit']").all();
         InformationEntity informationEntiy;
-        for (int index = 0; index < valueList.size();index++){
+            for (int index = 0; index < valueList.size();index++){
             informationEntiy = new InformationEntity();
             informationEntiy.setUrl(CommonUtils.getElementValue(page.getHtml().xpath("//div[@class='unit']/h1/a/@href").all(),index));
             informationEntiy.setTitle(CommonUtils.getElementValue(page.getHtml().xpath("//div[@class='unit']/h1/a/text()").all(),index));
             informationEntiy.setPereview(CommonUtils.getElementValue(page.getHtml().xpath("//div[@class='unit']/dl/dd/text()").all(),index));
             informationEntiy.setRecomment(CommonUtils.getElementValue(page.getHtml().xpath("//span[@class='num_recom']/text()").all(),index));
             informationEntiy.setReadcount(CommonUtils.getElementValue(page.getHtml().xpath("//span[@class='view_time']/text()").all(),index));
-            informationEntiy.setTime(CommonUtils.getElementDate(page.getHtml().xpath("//span[@class='ago']/text()").all(),index));
+            informationEntiy.setTime(CommonUtils.getElementDate(page.getHtml().xpath("//span[@class='ago']/text()").all(),index,CommonStaticValue.COMMONDATATYPE));
             logger.debug("================================"+informationEntiy.toString());
             informationEntities.add(informationEntiy);
             logger.debug("++++++++++++++++++++++++++++++++"+informationEntities.toString());
@@ -43,7 +43,7 @@ public class CSDNInformationPage extends CommonLoggerUtil implements PageProcess
         return site;
     }
     public static void main(String args[]){
-        Spider.create(new CSDNInformationPage()).addUrl("http://news.csdn.net").thread(50).addPipeline(new CSDNInformationPipeLine()).run();
+        Spider.create(new CSDNInformationPage()).addUrl("http://news.csdn.net").thread(CommonStaticValue.THREAD_COUNT).addPipeline(new CSDNInformationPipeLine()).run();
         /*Spider.create(new CSDNInformationPage()).addUrl("http://news.csdn.net").thread(10).run();*/
     }
 }

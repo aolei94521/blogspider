@@ -2,7 +2,7 @@ package com.aolei.spider.entity;
 
 import java.util.Date;
 
-public class viewRecordEntity {
+public class ViewRecordEntity {
     private Integer id;
 
     private Integer userid;
@@ -13,7 +13,7 @@ public class viewRecordEntity {
 
     private Date viewtime;
 
-    public viewRecordEntity(Integer id, Integer userid, Integer recordid, String tbname, Date viewtime) {
+    public ViewRecordEntity(Integer id, Integer userid, Integer recordid, String tbname, Date viewtime) {
         this.id = id;
         this.userid = userid;
         this.recordid = recordid;
@@ -21,7 +21,7 @@ public class viewRecordEntity {
         this.viewtime = viewtime;
     }
 
-    public viewRecordEntity() {
+    public ViewRecordEntity() {
         super();
     }
 

@@ -14,6 +14,32 @@ import java.io.PrintWriter;
 public class ReturnResultUtils {
     private static final Logger logger = LoggerFactory.getLogger(ReturnResultUtils.class);
 
+    public static PrintWriter outWriteResult(HttpServletResponse response,String msg){
+        JSONResultUtils jsonResultUtils = new JSONResultUtils();
+        String result = null;
+        PrintWriter outWriter = null;
+        try {
+            response.setContentType("application/json;charset=UTF-8");
+            outWriter = response.getWriter();
+            if (msg.equals("注册成功")){
+                jsonResultUtils.setMsg(msg);
+                result = JSON.toJSONString(jsonResultUtils);
+            }else{
+                jsonResultUtils.setMsg(msg);
+                jsonResultUtils.setStatus(CommonStaticValue.ERRORSTATUS);
+                result = JSON.toJSONString(jsonResultUtils);
+            }
+            outWriter.write(result);
+            return response.getWriter();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            if (outWriter != null){
+                outWriter.close();
+            }
+        }
+        return outWriter;
+    }
     /**
      *将用户请求到的数据进行封装
      * @param response

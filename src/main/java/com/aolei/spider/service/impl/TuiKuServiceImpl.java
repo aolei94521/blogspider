@@ -2,6 +2,7 @@ package com.aolei.spider.service.impl;
 
 import com.aolei.spider.dao.TuiKuEntityMapper;
 import com.aolei.spider.entity.TuiKuEntity;
+import com.aolei.spider.service.BaseService;
 import com.aolei.spider.service.TuiKuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import java.util.List;
  * Created by Administrator on 2017/4/9.
  */
 @Service("TuiKuService")
-public class TuiKuServiceImpl implements TuiKuService{
+public class TuiKuServiceImpl extends BaseService implements TuiKuService{
     @Resource
     @Autowired
     private TuiKuEntityMapper mapper;

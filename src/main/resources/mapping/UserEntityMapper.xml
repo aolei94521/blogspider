@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.aolei.spider.dao.userEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.aolei.spider.entity.userEntity" >
+<mapper namespace="com.aolei.spider.dao.UserEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.aolei.spider.entity.UserEntity" >
     <constructor >
       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="userName" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -11,7 +11,7 @@
   <sql id="Base_Column_List" >
     id, userName, userPwd
   </sql>
-  <insert id="insertSelective" parameterType="com.aolei.spider.entity.userEntity" >
+  <insert id="insertSelective" parameterType="com.aolei.spider.entity.UserEntity" >
     insert into tb_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -36,7 +36,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aolei.spider.entity.userEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.aolei.spider.entity.UserEntity" >
     update tb_user
     <set >
       <if test="username != null" >
@@ -48,4 +48,8 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="selectUser" parameterType="String" resultType="com.aolei.spider.entity.UserEntity">
+    SELECT * FROM tb_user WHERE userName = #{userName} AND userPwd = #{userPwd} LIMIT 1
+  </select>
 </mapper>

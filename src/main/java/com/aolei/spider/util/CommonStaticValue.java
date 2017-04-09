@@ -13,4 +13,5 @@ public class CommonStaticValue {
     public static final int HASMORE = 1;//数据分页有下一页
     public static final int NOMORE = 0;//数据分页没有下一页
     public static final int NOSTART = -1;//当查询的分页数据为空时，使用
+    public static final int ERRORSTATUS = 1;
 }

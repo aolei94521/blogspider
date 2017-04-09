@@ -1,13 +1,13 @@
 package com.aolei.spider.dao;
 
-import com.aolei.spider.entity.viewRecordEntity;
+import com.aolei.spider.entity.ViewRecordEntity;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-public interface viewRecordEntityMapper {
+public interface ViewRecordEntityMapper {
     @Delete({
         "delete from tb_view_record",
         "where id = #{id,jdbcType=INTEGER}"
@@ -22,9 +22,9 @@ public interface viewRecordEntityMapper {
         "#{recordid,jdbcType=INTEGER}, #{tbname,jdbcType=VARCHAR}, ",
         "#{viewtime,jdbcType=TIMESTAMP})"
     })
-    int insert(viewRecordEntity record);
+    int insert(ViewRecordEntity record);
 
-    int insertSelective(viewRecordEntity record);
+    int insertSelective(ViewRecordEntity record);
 
     @Select({
         "select",
@@ -33,9 +33,9 @@ public interface viewRecordEntityMapper {
         "where id = #{id,jdbcType=INTEGER}"
     })
     @ResultMap("BaseResultMap")
-    viewRecordEntity selectByPrimaryKey(Integer id);
+    ViewRecordEntity selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(viewRecordEntity record);
+    int updateByPrimaryKeySelective(ViewRecordEntity record);
 
     @Update({
         "update tb_view_record",
@@ -45,5 +45,5 @@ public interface viewRecordEntityMapper {
           "viewTime = #{viewtime,jdbcType=TIMESTAMP}",
         "where id = #{id,jdbcType=INTEGER}"
     })
-    int updateByPrimaryKey(viewRecordEntity record);
+    int updateByPrimaryKey(ViewRecordEntity record);
 }

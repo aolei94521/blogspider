@@ -71,7 +71,7 @@
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
         </table> -->
-        <!--<table tableName="tb_user" domainObjectName="userEntity"
+        <!--<table tableName="tb_user" domainObjectName="UserEntity"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

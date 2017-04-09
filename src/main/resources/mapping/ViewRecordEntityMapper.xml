@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.aolei.spider.dao.viewRecordEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.aolei.spider.entity.viewRecordEntity" >
+<mapper namespace="com.aolei.spider.dao.ViewRecordEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.aolei.spider.entity.ViewRecordEntity" >
     <constructor >
       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="userId" jdbcType="INTEGER" javaType="java.lang.Integer" />
@@ -13,7 +13,7 @@
   <sql id="Base_Column_List" >
     id, userId, recordId, tbName, viewTime
   </sql>
-  <insert id="insertSelective" parameterType="com.aolei.spider.entity.viewRecordEntity" >
+  <insert id="insertSelective" parameterType="com.aolei.spider.entity.ViewRecordEntity" >
     insert into tb_view_record
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -50,7 +50,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aolei.spider.entity.viewRecordEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.aolei.spider.entity.ViewRecordEntity" >
     update tb_view_record
     <set >
       <if test="userid != null" >

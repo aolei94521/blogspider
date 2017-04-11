@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aolei.spider.dao.AnswerEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.aolei.spider.entity.AnswerEntity" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="questionId" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="answerUserName" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="replayUserName" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="answerContent" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="replayContent" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="status" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="createTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="replayTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, questionId, answerUserName, replayUserName, answerContent, replayContent, status, 
+    createTime, replayTime
+  </sql>
+  <insert id="insertSelective" parameterType="com.aolei.spider.entity.AnswerEntity" >
+    insert into tb_answer
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="questionid != null" >
+        questionId,
+      </if>
+      <if test="answerusername != null" >
+        answerUserName,
+      </if>
+      <if test="replayusername != null" >
+        replayUserName,
+      </if>
+      <if test="answercontent != null" >
+        answerContent,
+      </if>
+      <if test="replaycontent != null" >
+        replayContent,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="replaytime != null" >
+        replayTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="questionid != null" >
+        #{questionid,jdbcType=INTEGER},
+      </if>
+      <if test="answerusername != null" >
+        #{answerusername,jdbcType=VARCHAR},
+      </if>
+      <if test="replayusername != null" >
+        #{replayusername,jdbcType=VARCHAR},
+      </if>
+      <if test="answercontent != null" >
+        #{answercontent,jdbcType=VARCHAR},
+      </if>
+      <if test="replaycontent != null" >
+        #{replaycontent,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="replaytime != null" >
+        #{replaytime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aolei.spider.entity.AnswerEntity" >
+    update tb_answer
+    <set >
+      <if test="questionid != null" >
+        questionId = #{questionid,jdbcType=INTEGER},
+      </if>
+      <if test="answerusername != null" >
+        answerUserName = #{answerusername,jdbcType=VARCHAR},
+      </if>
+      <if test="replayusername != null" >
+        replayUserName = #{replayusername,jdbcType=VARCHAR},
+      </if>
+      <if test="answercontent != null" >
+        answerContent = #{answercontent,jdbcType=VARCHAR},
+      </if>
+      <if test="replaycontent != null" >
+        replayContent = #{replaycontent,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="replaytime != null" >
+        replayTime = #{replaytime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

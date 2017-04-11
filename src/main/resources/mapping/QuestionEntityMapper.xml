@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aolei.spider.dao.QuestionEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.aolei.spider.entity.QuestionEntity" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="applyUserName" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="status" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="likeCount" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="questionTitle" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="createTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.aolei.spider.entity.QuestionEntity" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="applyUserName" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="status" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="likeCount" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="questionTitle" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="createTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="questionContent" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, applyUserName, status, likeCount, questionTitle, createTime
+  </sql>
+  <sql id="Blob_Column_List" >
+    questionContent
+  </sql>
+  <insert id="insertSelective" parameterType="com.aolei.spider.entity.QuestionEntity" >
+    insert into tb_question
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="applyusername != null" >
+        applyUserName,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="likecount != null" >
+        likeCount,
+      </if>
+      <if test="questiontitle != null" >
+        questionTitle,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="questioncontent != null" >
+        questionContent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="applyusername != null" >
+        #{applyusername,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="likecount != null" >
+        #{likecount,jdbcType=INTEGER},
+      </if>
+      <if test="questiontitle != null" >
+        #{questiontitle,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="questioncontent != null" >
+        #{questioncontent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aolei.spider.entity.QuestionEntity" >
+    update tb_question
+    <set >
+      <if test="applyusername != null" >
+        applyUserName = #{applyusername,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="likecount != null" >
+        likeCount = #{likecount,jdbcType=INTEGER},
+      </if>
+      <if test="questiontitle != null" >
+        questionTitle = #{questiontitle,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="questioncontent != null" >
+        questionContent = #{questioncontent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

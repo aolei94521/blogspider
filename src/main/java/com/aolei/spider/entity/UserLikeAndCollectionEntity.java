@@ -7,6 +7,8 @@ public class UserLikeAndCollectionEntity {
 
     private String username;
 
+    private Integer blogid;
+
     private Integer type;
 
     private Date createtime;
@@ -15,16 +17,14 @@ public class UserLikeAndCollectionEntity {
 
     private String tbname;
 
-    private String blogid;
-
-    public UserLikeAndCollectionEntity(Integer id, String username, Integer type, Date createtime, Integer status, String tbname, String blogid) {
+    public UserLikeAndCollectionEntity(Integer id, String username, Integer blogid, Integer type, Date createtime, Integer status, String tbname) {
         this.id = id;
         this.username = username;
+        this.blogid = blogid;
         this.type = type;
         this.createtime = createtime;
         this.status = status;
         this.tbname = tbname;
-        this.blogid = blogid;
     }
 
     public UserLikeAndCollectionEntity() {
@@ -45,6 +45,14 @@ public class UserLikeAndCollectionEntity {
 
     public void setUsername(String username) {
         this.username = username == null ? null : username.trim();
+    }
+
+    public Integer getBlogid() {
+        return blogid;
+    }
+
+    public void setBlogid(Integer blogid) {
+        this.blogid = blogid;
     }
 
     public Integer getType() {
@@ -77,13 +85,5 @@ public class UserLikeAndCollectionEntity {
 
     public void setTbname(String tbname) {
         this.tbname = tbname == null ? null : tbname.trim();
-    }
-
-    public String getBlogid() {
-        return blogid;
-    }
-
-    public void setBlogid(String blogid) {
-        this.blogid = blogid == null ? null : blogid.trim();
     }
 }

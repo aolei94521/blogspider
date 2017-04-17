@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 /**
  * Created by Administrator on 2017/4/9.
  */
-@Service
+@Service("UserService")
 public class UserServiceImpl implements UserService{
     @Resource
     @Autowired

@@ -14,7 +14,7 @@ import java.io.PrintWriter;
 public class ReturnResultUtils {
     private static final Logger logger = LoggerFactory.getLogger(ReturnResultUtils.class);
 
-    public static PrintWriter outWriteResult(HttpServletResponse response,String msg){
+    public static PrintWriter outWriteResultForRegist(HttpServletResponse response,String msg){
         JSONResultUtils jsonResultUtils = new JSONResultUtils();
         String result = null;
         PrintWriter outWriter = null;
@@ -102,10 +102,10 @@ public class ReturnResultUtils {
             jsonResultUtils.setObj("");
             return JSON.toJSONString(jsonResultUtils);
         }
-
         jsonResultUtils.setObj(resultString[0]);
         jsonResultUtils.setStatus(1);
         jsonResultUtils.setMsg("");
+        logger.info("++++++"+JSON.toJSONString(jsonResultUtils));
         return  JSON.toJSONString(jsonResultUtils);
     }
 

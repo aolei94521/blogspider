@@ -68,4 +68,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectByBlogIdAndType" resultType="com.aolei.spider.entity.LikeEntity">
+    SELECT * FROM tb_like WHERE blogId = #{0} AND tbName = #{1};
+  </select>
 </mapper>

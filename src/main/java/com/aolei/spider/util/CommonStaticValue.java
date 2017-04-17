@@ -14,4 +14,8 @@ public class CommonStaticValue {
     public static final int NOMORE = 0;//数据分页没有下一页
     public static final int NOSTART = -1;//当查询的分页数据为空时，使用
     public static final int ERRORSTATUS = 1;
+    public static final int LIKE = 2;//点赞
+    public static final int COLLECTION = 1;//收藏
+    public static final int LIKESTATUS = 1;//点赞或收藏状态
+    public static final int DISLIKESTATUS = 2;//取消点赞或收藏
 }

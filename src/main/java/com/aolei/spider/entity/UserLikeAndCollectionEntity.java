@@ -5,31 +5,17 @@ import java.util.Date;
 public class UserLikeAndCollectionEntity {
     private Integer id;
 
-    private String username;
+    private String userName;
 
-    private Integer blogid;
+    private Integer blogId;
 
     private Integer type;
 
-    private Date createtime;
+    private Date createTime;
 
     private Integer status;
 
-    private String tbname;
-
-    public UserLikeAndCollectionEntity(Integer id, String username, Integer blogid, Integer type, Date createtime, Integer status, String tbname) {
-        this.id = id;
-        this.username = username;
-        this.blogid = blogid;
-        this.type = type;
-        this.createtime = createtime;
-        this.status = status;
-        this.tbname = tbname;
-    }
-
-    public UserLikeAndCollectionEntity() {
-        super();
-    }
+    private String tbName;
 
     public Integer getId() {
         return id;
@@ -39,20 +25,20 @@ public class UserLikeAndCollectionEntity {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public Integer getBlogid() {
-        return blogid;
+    public Integer getBlogId() {
+        return blogId;
     }
 
-    public void setBlogid(Integer blogid) {
-        this.blogid = blogid;
+    public void setBlogId(Integer blogId) {
+        this.blogId = blogId;
     }
 
     public Integer getType() {
@@ -63,12 +49,12 @@ public class UserLikeAndCollectionEntity {
         this.type = type;
     }
 
-    public Date getCreatetime() {
-        return createtime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public Integer getStatus() {
@@ -80,10 +66,23 @@ public class UserLikeAndCollectionEntity {
     }
 
     public String getTbname() {
-        return tbname;
+        return tbName;
     }
 
-    public void setTbname(String tbname) {
-        this.tbname = tbname == null ? null : tbname.trim();
+    public void setTbname(String tbName) {
+        this.tbName = tbName;
+    }
+
+    public UserLikeAndCollectionEntity(Integer id, String userName, Integer blogId, Integer type, Date createTime, Integer status, String tbName) {
+        this.id = id;
+        this.userName = userName;
+        this.blogId = blogId;
+        this.type = type;
+        this.createTime = createTime;
+        this.status = status;
+        this.tbName = tbName;
+    }
+
+    public UserLikeAndCollectionEntity() {
     }
 }

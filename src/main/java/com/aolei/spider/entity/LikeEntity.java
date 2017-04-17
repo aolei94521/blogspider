@@ -64,4 +64,15 @@ public class LikeEntity {
     public void setCreatetime(Date createtime) {
         this.createtime = createtime;
     }
+
+    @Override
+    public String toString() {
+        return "LikeEntity{" +
+                "id=" + id +
+                ", blogid=" + blogid +
+                ", tbname='" + tbname + '\'' +
+                ", likecount=" + likecount +
+                ", createtime=" + createtime +
+                '}';
+    }
 }

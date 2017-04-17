@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class SpringContextUtil extends CommonLoggerUtil{
     private static AbstractApplicationContext applicationContext;
-
+    @SuppressWarnings("unchecked")
     public static <T> T getBean(String name) throws BeansException{
         applicationContext = new ClassPathXmlApplicationContext("classpath:mybatis.xml");
 

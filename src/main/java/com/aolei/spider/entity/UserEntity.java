@@ -3,19 +3,9 @@ package com.aolei.spider.entity;
 public class UserEntity {
     private Integer id;
 
-    private String userName;
+    private String username;
 
-    private String userPwd;
-
-    public UserEntity(Integer id, String username, String userpwd) {
-        this.id = id;
-        this.userName = username;
-        this.userPwd = userpwd;
-    }
-
-    public UserEntity() {
-        super();
-    }
+    private String userpwd;
 
     public Integer getId() {
         return id;
@@ -25,19 +15,28 @@ public class UserEntity {
         this.id = id;
     }
 
-    public String getsername() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
     public void setUsername(String username) {
-        this.userName = username == null ? null : username.trim();
+        this.username = username;
     }
 
     public String getUserpwd() {
-        return userPwd;
+        return userpwd;
     }
 
     public void setUserpwd(String userpwd) {
-        this.userPwd = userpwd == null ? null : userpwd.trim();
+        this.userpwd = userpwd;
+    }
+
+    public UserEntity(Integer id, String username, String userpwd) {
+        this.id = id;
+        this.username = username;
+        this.userpwd = userpwd;
+    }
+
+    public UserEntity() {
     }
 }

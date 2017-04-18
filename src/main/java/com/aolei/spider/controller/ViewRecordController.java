@@ -42,6 +42,7 @@ public class ViewRecordController extends BaseController{
         int result = viewRecordService.deleteAllViewReocrd(userName);
         if (result > 0){
             ReturnResultUtils.outWriteResult(response,"删除成功");
+
         }else{
             ReturnResultUtils.outWriteResult(response,"删除失败","删除失败");
         }

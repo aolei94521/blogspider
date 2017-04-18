@@ -88,4 +88,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectComment" resultType="com.aolei.spider.entity.CommentEntity">
+    SELECT * FROM tb_comment WHERE blogId=#{0} AND tbName=#{1} AND id > #{2} LIMIT #{3}
+  </select>
 </mapper>

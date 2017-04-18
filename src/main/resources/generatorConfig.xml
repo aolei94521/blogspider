@@ -106,7 +106,7 @@
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
         </table>-->
-        <table tableName="tb_user_like_and_collection" domainObjectName="UserLikeAndCollectionEntity"
+        <table tableName="tb_view_record" domainObjectName="ViewRecordEntity"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

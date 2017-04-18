@@ -1,71 +1,79 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.aolei.spider.dao.ViewRecordEntityMapper" >
-  <resultMap id="BaseResultMap" type="com.aolei.spider.entity.ViewRecordEntity" >
-    <constructor >
-      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="userId" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="recordId" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="tbName" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="viewTime" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aolei.spider.dao.ViewRecordEntityMapper">
+  <resultMap id="BaseResultMap" type="com.aolei.spider.entity.ViewRecordEntity">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="userName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="blogId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="tbName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="viewTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List" >
-    id, userId, recordId, tbName, viewTime
+  <sql id="Base_Column_List">
+    id, userName, blogId, tbName, viewTime
   </sql>
-  <insert id="insertSelective" parameterType="com.aolei.spider.entity.ViewRecordEntity" >
+  <insert id="insertSelective" parameterType="com.aolei.spider.entity.ViewRecordEntity">
     insert into tb_view_record
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         id,
       </if>
-      <if test="userid != null" >
-        userId,
+      <if test="username != null">
+        userName,
       </if>
-      <if test="recordid != null" >
-        recordId,
+      <if test="blogid != null">
+        blogId,
       </if>
-      <if test="tbname != null" >
+      <if test="tbname != null">
         tbName,
       </if>
-      <if test="viewtime != null" >
+      <if test="viewtime != null">
         viewTime,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="userid != null" >
-        #{userid,jdbcType=INTEGER},
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
       </if>
-      <if test="recordid != null" >
-        #{recordid,jdbcType=INTEGER},
+      <if test="blogid != null">
+        #{blogid,jdbcType=INTEGER},
       </if>
-      <if test="tbname != null" >
+      <if test="tbname != null">
         #{tbname,jdbcType=VARCHAR},
       </if>
-      <if test="viewtime != null" >
+      <if test="viewtime != null">
         #{viewtime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aolei.spider.entity.ViewRecordEntity" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.aolei.spider.entity.ViewRecordEntity">
     update tb_view_record
-    <set >
-      <if test="userid != null" >
-        userId = #{userid,jdbcType=INTEGER},
+    <set>
+      <if test="username != null">
+        userName = #{username,jdbcType=VARCHAR},
       </if>
-      <if test="recordid != null" >
-        recordId = #{recordid,jdbcType=INTEGER},
+      <if test="blogid != null">
+        blogId = #{blogid,jdbcType=INTEGER},
       </if>
-      <if test="tbname != null" >
+      <if test="tbname != null">
         tbName = #{tbname,jdbcType=VARCHAR},
       </if>
-      <if test="viewtime != null" >
+      <if test="viewtime != null">
         viewTime = #{viewtime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <delete id="deleteByRecordId">
+    DELETE FROM tb_view_record WHERE id = #{0}
+  </delete>
+
+  <delete id="deleteByUserName">
+    DELETE FROM tb_view_record WHERE userName=#{0}
+  </delete>
 </mapper>

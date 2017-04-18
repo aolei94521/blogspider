@@ -5,18 +5,18 @@ import java.util.Date;
 public class ViewRecordEntity {
     private Integer id;
 
-    private Integer userid;
+    private String username;
 
-    private Integer recordid;
+    private Integer blogid;
 
     private String tbname;
 
     private Date viewtime;
 
-    public ViewRecordEntity(Integer id, Integer userid, Integer recordid, String tbname, Date viewtime) {
+    public ViewRecordEntity(Integer id, String username, Integer blogid, String tbname, Date viewtime) {
         this.id = id;
-        this.userid = userid;
-        this.recordid = recordid;
+        this.username = username;
+        this.blogid = blogid;
         this.tbname = tbname;
         this.viewtime = viewtime;
     }
@@ -33,20 +33,20 @@ public class ViewRecordEntity {
         this.id = id;
     }
 
-    public Integer getUserid() {
-        return userid;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
     }
 
-    public Integer getRecordid() {
-        return recordid;
+    public Integer getBlogid() {
+        return blogid;
     }
 
-    public void setRecordid(Integer recordid) {
-        this.recordid = recordid;
+    public void setBlogid(Integer blogid) {
+        this.blogid = blogid;
     }
 
     public String getTbname() {

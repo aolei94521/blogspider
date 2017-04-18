@@ -1,7 +1,6 @@
 package com.aolei.spider.test;
 
-import com.aolei.spider.service.UserBlogLikeAndCollectionService;
-import com.aolei.spider.service.UserService;
+import com.aolei.spider.service.BlogCommentService;
 import com.aolei.spider.util.SpringContextUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,11 +33,16 @@ public class Test{
         service.addCSDNInformation(entity);
         logger.debug("==============================================="+list.toString());
     }*/
-    public static void main(String args[]){
+    /*public static void main(String args[]){
         UserBlogLikeAndCollectionService service = (UserBlogLikeAndCollectionService) SpringContextUtil.getBean("UserBlogLikeAndCollectionService");
         UserService service1 = (UserService) SpringContextUtil.getBean("UserService");
         int resulst = service.blogLike("debug1",1,2,1,"tb_news");
         //int result1 = service1.userRegist("sssdfsfsdf","sdfsdfsdfsfsd");
         logger.info("===================================="+resulst);
+    }*/
+    public static void main(String args[]){
+        BlogCommentService service = (BlogCommentService) SpringContextUtil.getBean("BlogCommentService");
+        int result = service.blogReplay("tb_news","blog","我日","debug2","233333",1);
+        logger.info("=================="+result);
     }
 }

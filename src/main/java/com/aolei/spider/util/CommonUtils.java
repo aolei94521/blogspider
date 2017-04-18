@@ -89,7 +89,7 @@ public class CommonUtils extends CommonLoggerUtil{
 
     public static <T>  boolean listIsEmputyOrNull(List<T> list){
         boolean listIsEmputyOrNull = false;
-        if (list == null && list.isEmpty()){
+        if (list == null || list.isEmpty()){
             listIsEmputyOrNull = true;
         }
         return listIsEmputyOrNull;

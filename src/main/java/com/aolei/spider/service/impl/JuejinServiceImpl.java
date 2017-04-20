@@ -23,4 +23,12 @@ public class JuejinServiceImpl extends BaseService implements JueJinService{
             jueJinEntityMapper.insertSelective(jueJinEntity);
         }
     }
+
+    public List<JueJinEntity> getJueJinList(int start, int count) {
+        //每次请求的数据为20条
+        if (count < 0 || count > 20){
+            count = 20;
+        }
+        return jueJinEntityMapper.getJueJinList(start,count);
+    }
 }

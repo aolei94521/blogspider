@@ -68,4 +68,8 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="getCodeCeoList" resultType="com.aolei.spider.entity.CodeCeoEntity">
+    SELECT * FROM tb_manong WHERE id > #{0} LIMIT #{1}
+  </select>
 </mapper>

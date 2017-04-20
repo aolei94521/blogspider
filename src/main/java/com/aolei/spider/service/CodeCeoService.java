@@ -11,4 +11,6 @@ import java.util.List;
 @Service
 public interface CodeCeoService {
     int addCodeCeoEntity(List<CodeCeoEntity> codeCeoEntities);
+
+    List<CodeCeoEntity> getCodeCeoList(int start,int count);
 }

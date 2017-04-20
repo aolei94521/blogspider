@@ -1,9 +1,13 @@
 package com.aolei.spider.test;
 
-import com.aolei.spider.service.BlogCommentService;
+import com.aolei.spider.entity.CodeCeoEntity;
+import com.aolei.spider.service.CodeCeoService;
 import com.aolei.spider.util.SpringContextUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/3/29.
@@ -41,8 +45,15 @@ public class Test{
         logger.info("===================================="+resulst);
     }*/
     public static void main(String args[]){
-        BlogCommentService service = (BlogCommentService) SpringContextUtil.getBean("BlogCommentService");
-        int result = service.blogReplay("tb_news","blog","我日","debug2","233333",1);
-        logger.info("=================="+result);
+        CodeCeoService service = (CodeCeoService) SpringContextUtil.getBean("CodeCeoService");
+        CodeCeoEntity codeCeoEntity = new CodeCeoEntity();
+        codeCeoEntity.setIamgelink("ssssssssssss");
+        codeCeoEntity.setLink("ssssssssssssss");
+        codeCeoEntity.setTitle("ssssssssssssssss");
+        codeCeoEntity.setContent("sssssssssssssssssss");
+        List<CodeCeoEntity> list = new ArrayList<CodeCeoEntity>();
+        list.add(codeCeoEntity);
+        int result = service.addCodeCeoEntity(list);
+        logger.info("=============================="+result);
     }
 }

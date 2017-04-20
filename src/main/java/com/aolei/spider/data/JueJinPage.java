@@ -29,10 +29,6 @@ public class JueJinPage extends CommonLoggerUtil implements PageProcessor{
             jueJinEntity.setAuthor(CommonUtils.getElementValue(page.getHtml().xpath("span[@class='username']/text()").all(),index));
             jueJinEntities.add(jueJinEntity);
         }
-        logger.info(valueList.toString());
-        logger.info(valueList.size()+"ssssssssssssssssssssss");
-        logger.info("sddssfsdf"+jueJinEntities.size());
-        logger.info(jueJinEntities.toString());
         page.putField("jueJinEntities",jueJinEntities);
     }
 

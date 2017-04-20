@@ -22,4 +22,14 @@ public class CNBlogServiceImpl implements CNBlogService{
             mapper.insertSelective(cnBlogsEntity);
         }
     }
+
+    public List<CNBlogsEntity> getCnblog(int start, int count) {
+        //每次请求的数据为20条
+        if (count < 0 || count > 20){
+            count = 20;
+        }
+        return mapper.getCnblogList(start,count);
+    }
+
+
 }

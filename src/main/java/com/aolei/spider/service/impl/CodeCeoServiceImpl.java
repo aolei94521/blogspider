@@ -23,4 +23,11 @@ public class CodeCeoServiceImpl implements CodeCeoService{
         }
         return 0;
     }
+
+    public List<CodeCeoEntity> getCodeCeoList(int start, int count) {
+       if (count > 20 || count < 0){
+           count = 20;
+       }
+       return mapper.getCodeCeoList(start,count);
+    }
 }

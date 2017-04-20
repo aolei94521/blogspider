@@ -11,4 +11,5 @@ import java.util.List;
 @Service
 public interface  JueJinService {
     void addJuejinEntity(List<JueJinEntity> jueJinEntities);
+    List<JueJinEntity> getJueJinList(int start,int count);
 }

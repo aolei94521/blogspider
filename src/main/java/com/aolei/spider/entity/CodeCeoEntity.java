@@ -11,6 +11,8 @@ public class CodeCeoEntity {
 
     private String iamgelink;
 
+    private String tbName="tb_manong";
+
     public CodeCeoEntity(Integer id, String title, String content, String link, String iamgelink) {
         this.id = id;
         this.title = title;
@@ -61,6 +63,14 @@ public class CodeCeoEntity {
 
     public void setIamgelink(String iamgelink) {
         this.iamgelink = iamgelink == null ? null : iamgelink.trim();
+    }
+
+    public String getTbName() {
+        return tbName;
+    }
+
+    public void setTbName(String tbName) {
+        this.tbName = tbName;
     }
 
     @Override

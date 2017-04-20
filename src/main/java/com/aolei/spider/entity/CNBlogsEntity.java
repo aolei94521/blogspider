@@ -11,6 +11,8 @@ public class CNBlogsEntity {
 
     private String link;
 
+    private String tbName="tb_cnblogs";
+
     public CNBlogsEntity(Integer id, String title, String author, String content, String link) {
         this.id = id;
         this.title = title;
@@ -61,6 +63,14 @@ public class CNBlogsEntity {
 
     public void setLink(String link) {
         this.link = link == null ? null : link.trim();
+    }
+
+    public String getTbName() {
+        return tbName;
+    }
+
+    public void setTbName(String tbName) {
+        this.tbName = tbName;
     }
 
     @Override

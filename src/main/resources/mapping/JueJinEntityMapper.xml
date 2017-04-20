@@ -68,4 +68,8 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="getJueJinList" resultType="com.aolei.spider.entity.JueJinEntity">
+     SELECT * FROM tb_juejin WHERE id > #{0} LIMIT #{1}
+  </select>
 </mapper>

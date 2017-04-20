@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aolei.spider.dao.CloudEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.aolei.spider.entity.CloudEntity" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="url" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="title" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="time" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="readCount" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="recomment" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.aolei.spider.entity.CloudEntity" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="url" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="title" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="time" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="readCount" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="recomment" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="pereview" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, url, title, time, readCount, recomment
+  </sql>
+  <sql id="Blob_Column_List" >
+    pereview
+  </sql>
+  <insert id="insertSelective" parameterType="com.aolei.spider.entity.CloudEntity" >
+    insert into tb_cloud
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="readcount != null" >
+        readCount,
+      </if>
+      <if test="recomment != null" >
+        recomment,
+      </if>
+      <if test="pereview != null" >
+        pereview,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="readcount != null" >
+        #{readcount,jdbcType=VARCHAR},
+      </if>
+      <if test="recomment != null" >
+        #{recomment,jdbcType=VARCHAR},
+      </if>
+      <if test="pereview != null" >
+        #{pereview,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aolei.spider.entity.CloudEntity" >
+    update tb_cloud
+    <set >
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="readcount != null" >
+        readCount = #{readcount,jdbcType=VARCHAR},
+      </if>
+      <if test="recomment != null" >
+        recomment = #{recomment,jdbcType=VARCHAR},
+      </if>
+      <if test="pereview != null" >
+        pereview = #{pereview,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

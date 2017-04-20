@@ -43,9 +43,7 @@ public class TuiKuController extends BaseController{
     void getTuiKuList(HttpServletRequest request,HttpServletResponse response){
         int start = NumberUtils.toInt(request.getParameter("start"));
         int count = NumberUtils.toInt(request.getParameter("count"));
-        logger.info("debug========================="+start+"===="+count);
         List<TuiKuEntity> tuiKuEntities = tuiKuService.getTuiKuList(start,count);
-        logger.info("debug========================="+tuiKuEntities.size());
         /**将数据返回**/
         if (!CommonUtils.listIsEmputyOrNull(tuiKuEntities)){
             int size = tuiKuEntities.size();

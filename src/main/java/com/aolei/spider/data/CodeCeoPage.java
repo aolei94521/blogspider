@@ -22,7 +22,6 @@ public class CodeCeoPage extends CommonLoggerUtil implements PageProcessor{
         List<CodeCeoEntity> codeCeoEntities = new ArrayList<CodeCeoEntity>();
         page.addTargetRequests(page.getHtml().css("div.paging").links().all());
         List<String> valueList = page.getHtml().xpath("article[@class='excerpt']").all();
-        logger.info("ssssssssssssssssssss"+valueList.size());
         CodeCeoEntity codeCeoEntity;
         for (int index = 0; index < valueList.size();index++){
             codeCeoEntity = new CodeCeoEntity();
@@ -33,8 +32,6 @@ public class CodeCeoPage extends CommonLoggerUtil implements PageProcessor{
             codeCeoEntities.add(codeCeoEntity);
         }
         page.putField("codeCeoEntities",codeCeoEntities);
-        logger.info(codeCeoEntities.size()+"ssfsfsdf");
-        logger.info(codeCeoEntities.toString());
     }
 
     public Site getSite() {

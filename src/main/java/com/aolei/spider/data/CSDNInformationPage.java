@@ -31,9 +31,7 @@ public class CSDNInformationPage extends CommonLoggerUtil implements PageProcess
             informationEntiy.setRecomment(CommonUtils.getElementValue(page.getHtml().xpath("//span[@class='num_recom']/text()").all(),index));
             informationEntiy.setReadcount(CommonUtils.getElementValue(page.getHtml().xpath("//span[@class='view_time']/text()").all(),index));
             informationEntiy.setTime(CommonUtils.getElementDate(page.getHtml().xpath("//span[@class='ago']/text()").all(),index,CommonStaticValue.COMMONDATATYPE));
-            logger.debug("================================"+informationEntiy.toString());
             informationEntities.add(informationEntiy);
-            logger.debug("++++++++++++++++++++++++++++++++"+informationEntities.toString());
         }
         page.putField("informationEntities",informationEntities);
 
@@ -44,6 +42,5 @@ public class CSDNInformationPage extends CommonLoggerUtil implements PageProcess
     }
     public static void main(String args[]){
         Spider.create(new CSDNInformationPage()).addUrl("http://news.csdn.net").thread(CommonStaticValue.THREAD_COUNT).addPipeline(new CSDNInformationPipeLine()).run();
-        /*Spider.create(new CSDNInformationPage()).addUrl("http://news.csdn.net").thread(10).run();*/
     }
 }

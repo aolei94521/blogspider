@@ -21,7 +21,6 @@ public class CNBlogsPage extends CommonLoggerUtil implements PageProcessor{
     public void process(Page page) {
         List<CNBlogsEntity> cnBlogsEntities = new ArrayList<CNBlogsEntity>();
         page.addTargetRequests(page.getHtml().xpath("div[@class=pager]").links().all());
-        logger.info("ssssssssssssssssssss"+page.getHtml().xpath("div[@class=pager]").links().all());
         List<String> valueList = page.getHtml().xpath("div[@class='content']").all();
         CNBlogsEntity cnBlogsEntity;
         for (int index = 0; index < valueList.size();index++){
@@ -33,8 +32,6 @@ public class CNBlogsPage extends CommonLoggerUtil implements PageProcessor{
             cnBlogsEntities.add(cnBlogsEntity);
         }
         page.putField("cnBlogsEntities",cnBlogsEntities);
-        logger.info("sssssssssssssssssssss"+cnBlogsEntities.size());
-        /*logger.info(cnBlogsEntities.toString());*/
     }
 
     public Site getSite() {

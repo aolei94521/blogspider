@@ -12,4 +12,6 @@ import java.util.List;
 public interface CNBlogService {
 
    void addCNBlogs(List<CNBlogsEntity> list);
+
+   List<CNBlogsEntity> getCnblog(int start,int count);
 }

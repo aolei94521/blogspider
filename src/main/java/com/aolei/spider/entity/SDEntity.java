@@ -15,6 +15,7 @@ public class SDEntity {
 
     private String pereview;
 
+    private String tbName="tb_sd";
     public SDEntity(Integer id, String url, String title, String time, String readcount, String recomment, String pereview) {
         this.id = id;
         this.url = url;
@@ -83,5 +84,13 @@ public class SDEntity {
 
     public void setPereview(String pereview) {
         this.pereview = pereview == null ? null : pereview.trim();
+    }
+
+    public String getTbName() {
+        return tbName;
+    }
+
+    public void setTbName(String tbName) {
+        this.tbName = tbName;
     }
 }

@@ -15,6 +15,7 @@ public class TuiKuEntity {
 
     private String imgurl;
 
+    private String tbName="tb_tuiku";
     public TuiKuEntity(Integer id, String title, String auther, Date time, String url, String imgurl) {
         this.id = id;
         this.title = title;
@@ -74,6 +75,14 @@ public class TuiKuEntity {
 
     public void setImgurl(String imgurl) {
         this.imgurl = imgurl == null ? null : imgurl.trim();
+    }
+
+    public String getTbName() {
+        return tbName;
+    }
+
+    public void setTbName(String tbName) {
+        this.tbName = tbName;
     }
 
     @Override

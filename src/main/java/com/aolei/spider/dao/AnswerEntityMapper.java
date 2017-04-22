@@ -1,11 +1,9 @@
 package com.aolei.spider.dao;
 
 import com.aolei.spider.entity.AnswerEntity;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
+
+import java.util.List;
 
 public interface AnswerEntityMapper {
     @Delete({
@@ -55,4 +53,6 @@ public interface AnswerEntityMapper {
         "where id = #{id,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(AnswerEntity record);
+
+    List<Integer> selectQuestionIdByUserName(String userName);
 }

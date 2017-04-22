@@ -18,4 +18,6 @@ public class CommonStaticValue {
     public static final int COLLECTION = 1;//收藏
     public static final int LIKESTATUS = 1;//点赞或收藏状态
     public static final int DISLIKESTATUS = 2;//取消点赞或收藏
+    public static final int NORMAL = 1;//问题有效
+    public static final int UNNORMAL = 2;//问题无效
 }

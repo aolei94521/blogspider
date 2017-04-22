@@ -65,7 +65,7 @@ public class InformationController extends BaseController {
                 ReturnResultUtils.outWriteResultList(response,CommonStaticValue.HASMORE,nextStart,informationEntities);
             }
         }else{
-              ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"您查询的数据为空");
+              ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,informationEntities,"没有更多了");
           }
     }
 }

@@ -86,4 +86,17 @@ public class QuestionEntity {
     public void setQuestioncontent(String questioncontent) {
         this.questioncontent = questioncontent == null ? null : questioncontent.trim();
     }
+
+    @Override
+    public String toString() {
+        return "QuestionEntity{" +
+                "id=" + id +
+                ", applyusername='" + applyusername + '\'' +
+                ", status=" + status +
+                ", likecount=" + likecount +
+                ", questiontitle='" + questiontitle + '\'' +
+                ", createtime=" + createtime +
+                ", questioncontent='" + questioncontent + '\'' +
+                '}';
+    }
 }

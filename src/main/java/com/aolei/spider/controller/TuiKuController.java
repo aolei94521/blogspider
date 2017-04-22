@@ -54,7 +54,7 @@ public class TuiKuController extends BaseController{
                 ReturnResultUtils.outWriteResultList(response,CommonStaticValue.HASMORE,nextStart,tuiKuEntities);
             }
         }else{
-            ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"您查询的数据为空");
+            ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,tuiKuEntities,"没有更多了");
         }
     }
 }

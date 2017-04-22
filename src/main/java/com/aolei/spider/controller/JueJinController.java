@@ -33,7 +33,7 @@ public class JueJinController extends BaseController{
                 ReturnResultUtils.outWriteResultList(response,CommonStaticValue.HASMORE,nextStart,jueJinEntities);
             }
         }else{
-            ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"没有更多了");
+            ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,jueJinEntities,"没有更多了");
         }
     }
 

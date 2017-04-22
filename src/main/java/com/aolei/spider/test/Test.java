@@ -1,13 +1,9 @@
 package com.aolei.spider.test;
 
-import com.aolei.spider.entity.CodeCeoEntity;
-import com.aolei.spider.service.CodeCeoService;
+import com.aolei.spider.service.QuestionService;
 import com.aolei.spider.util.SpringContextUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Administrator on 2017/3/29.
@@ -45,7 +41,7 @@ public class Test{
         logger.info("===================================="+resulst);
     }*/
     public static void main(String args[]){
-        CodeCeoService service = (CodeCeoService) SpringContextUtil.getBean("CodeCeoService");
+       /* CodeCeoService service = (CodeCeoService) SpringContextUtil.getBean("CodeCeoService");
         CodeCeoEntity codeCeoEntity = new CodeCeoEntity();
         codeCeoEntity.setIamgelink("ssssssssssss");
         codeCeoEntity.setLink("ssssssssssssss");
@@ -54,6 +50,8 @@ public class Test{
         List<CodeCeoEntity> list = new ArrayList<CodeCeoEntity>();
         list.add(codeCeoEntity);
         int result = service.addCodeCeoEntity(list);
-        logger.info("=============================="+result);
+        logger.info("=============================="+result);*/
+        QuestionService service = (QuestionService) SpringContextUtil.getBean("QuestionService");
+        service.getMyAnswerQuestion("debug");
     }
 }

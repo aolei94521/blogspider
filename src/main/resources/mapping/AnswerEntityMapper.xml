@@ -109,4 +109,8 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectQuestionIdByUserName" resultType="int">
+    SELECT questionId FROM tb_answer WHERE answerUserName=#{0} OR replayUserName=#{0}
+  </select>
+  
 </mapper>

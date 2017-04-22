@@ -34,7 +34,7 @@ public class CodeCeoController extends BaseController{
                 ReturnResultUtils.outWriteResultList(response,CommonStaticValue.HASMORE,nextStart,codeCeoEntities);
             }
         }else{
-            ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"没有更多了");
+            ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,codeCeoEntities,"没有更多了");
         }
     }
 }

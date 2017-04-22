@@ -33,7 +33,7 @@ public class CNBlogController extends BaseController{
                 ReturnResultUtils.outWriteResultList(response,CommonStaticValue.HASMORE,nextStart,cnBlogsEntities);
             }
         }else{
-            ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"没有更多了");
+            ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,cnBlogsEntities,"没有更多了");
         }
     }
 }

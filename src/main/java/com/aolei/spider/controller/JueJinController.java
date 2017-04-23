@@ -21,7 +21,7 @@ import java.util.List;
 public class JueJinController extends BaseController{
     @Resource
     JueJinService jueJinService;
-    @RequestMapping(value = "getJunjin",method = {RequestMethod.GET})
+    @RequestMapping(value = "getJuejin",method = {RequestMethod.GET})
     public void getJunJinList(@RequestParam(value = "start")int start, @RequestParam(value = "count")int count, HttpServletResponse response){
         List<JueJinEntity> jueJinEntities = jueJinService.getJueJinList(start,count);
         if (jueJinEntities != null && !jueJinEntities.isEmpty()){

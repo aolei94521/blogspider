@@ -40,7 +40,7 @@ public class UserBlogLikeAndCollectController extends BaseController{
         if (result > 0){
             ReturnResultUtils.outWriteResult(response,"[]","操作成功");
         }else{
-            ReturnResultUtils.outWriteResult(response,"操作失败","操作失败");
+            ReturnResultUtils.outWriteResult(response,"[]","操作失败");
         }
     }
 
@@ -76,9 +76,9 @@ public class UserBlogLikeAndCollectController extends BaseController{
             int size = commentEntityList.size();
             int nextStart = commentEntityList.get(size - 1).getId();
             if (size > count){
-                ReturnResultUtils.outWriteResultList(response, CommonStaticValue.NOMORE,nextStart,commentEntityList);
+                ReturnResultUtils.outWriteResultList(response, CommonStaticValue.HASMORE,nextStart,commentEntityList);
             }else{
-                ReturnResultUtils.outWriteResultList(response,CommonStaticValue.HASMORE,nextStart,commentEntityList);
+                ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,nextStart,commentEntityList);
             }
         }else{
             ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,commentEntityList,"暂无评论");

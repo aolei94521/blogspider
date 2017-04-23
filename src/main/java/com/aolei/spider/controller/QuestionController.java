@@ -36,6 +36,7 @@ public class QuestionController extends BaseController{
     @RequestMapping(value = "like",method = {RequestMethod.GET})
     public void likeQuestion(@RequestParam(value = "id") int id,@RequestParam(value = "likeStatus") int likeStatus,HttpServletResponse response){
         questionService.likeQuestion(id,likeStatus);
+        ReturnResultUtils.outWriteResult(response,"[]","操作成功");
     }
     @RequestMapping(value = "allQuestion",method = {RequestMethod.GET})
     public void getAllQuesion(@RequestParam(value = "start") int start,@RequestParam(value = "count") int count,HttpServletResponse response){
@@ -46,10 +47,10 @@ public class QuestionController extends BaseController{
             if (size < count){
                 ReturnResultUtils.outWriteResultList(response, CommonStaticValue.NOMORE,nextStart,questionEntityList);
             }else{
-                ReturnResultUtils.outWriteResultList(response, CommonStaticValue.HASMORE,nextStart,questionEntityList);
+                ReturnResultUtils.outWriteResultList(response, CommonStaticValue.HASMORE,nextStart,questionEntityList,"没有更多了");
             }
         }else{
-            ReturnResultUtils.outWriteResultList(response, CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"没有更多了");
+            ReturnResultUtils.outWriteResultList(response, CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"暂无问题，发布一个吧");
         }
     }
 
@@ -59,7 +60,7 @@ public class QuestionController extends BaseController{
         if (questionEntities != null && !questionEntities.isEmpty()){
             ReturnResultUtils.outWriteResult(response,questionEntities);
         }else{
-            ReturnResultUtils.outWriteResult(response,questionEntities,"暂时没有发布问题");
+            ReturnResultUtils.outWriteResult(response,questionEntities,"暂时没有发布问题,去发布一个吧");
         }
     }
     @RequestMapping("answer")

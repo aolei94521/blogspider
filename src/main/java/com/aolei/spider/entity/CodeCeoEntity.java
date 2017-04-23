@@ -9,16 +9,16 @@ public class CodeCeoEntity {
 
     private String link;
 
-    private String iamgelink;
+    private String imagelink;
 
     private String tbName="tb_manong";
 
-    public CodeCeoEntity(Integer id, String title, String content, String link, String iamgelink) {
+    public CodeCeoEntity(Integer id, String title, String content, String link, String imagelink) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.link = link;
-        this.iamgelink = iamgelink;
+        this.imagelink = imagelink;
     }
 
     public CodeCeoEntity() {
@@ -58,11 +58,11 @@ public class CodeCeoEntity {
     }
 
     public String getIamgelink() {
-        return iamgelink;
+        return imagelink;
     }
 
     public void setIamgelink(String iamgelink) {
-        this.iamgelink = iamgelink == null ? null : iamgelink.trim();
+        this.imagelink = iamgelink == null ? null : iamgelink.trim();
     }
 
     public String getTbName() {
@@ -80,7 +80,7 @@ public class CodeCeoEntity {
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", link='" + link + '\'' +
-                ", iamgelink='" + iamgelink + '\'' +
+                ", iamgelink='" + imagelink + '\'' +
                 '}';
     }
 }

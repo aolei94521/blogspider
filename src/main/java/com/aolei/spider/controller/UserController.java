@@ -29,9 +29,9 @@ public class UserController extends BaseController{
     public void userRegist(@RequestParam(value="userName",required = true) String userName,@RequestParam(value="userPwd",required = true) String userPwd, HttpServletResponse response){
         int registSuccuss = userService.userRegist(userName,userPwd);
         if (registSuccuss > 0){//注册成功
-            ReturnResultUtils.outWriteResultForRegist(response,"注册成功");
+            ReturnResultUtils.outWriteResult(response,"[]","注册成功");
         }else{
-            ReturnResultUtils.outWriteResultForRegist(response,"注册失败请重新注册");
+            ReturnResultUtils.outWriteResult(response,"[]","注册失败请重新注册");
         }
     }
 
@@ -44,9 +44,9 @@ public class UserController extends BaseController{
     @RequestMapping(value = "userLogin", method = {RequestMethod.GET})
     public void userLogin(@RequestParam(value="userName",required = true) String userName,@RequestParam(value="userPwd",required = true) String userPwd, HttpServletResponse response){
         if (userService.userLogin(userName,userPwd)){
-            ReturnResultUtils.outWriteResult(response,"登录成功");
+            ReturnResultUtils.outWriteResult(response,"[]","登录成功");
         }else{
-            ReturnResultUtils.outWriteResult(response,"登录失败,请检查您的登陆信息");
+            ReturnResultUtils.outWriteResult(response,"[]","登录失败,请检查您的登陆信息");
         }
     }
 }

@@ -51,6 +51,7 @@ public class TuiKuController extends BaseController{
             if (tuiKuEntities.size() < count){
                 ReturnResultUtils.outWriteResultList(response, CommonStaticValue.NOMORE,nextStart,tuiKuEntities);
             }else{
+
                 ReturnResultUtils.outWriteResultList(response,CommonStaticValue.HASMORE,nextStart,tuiKuEntities);
             }
         }else{

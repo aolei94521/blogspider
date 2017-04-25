@@ -112,5 +112,8 @@
   <select id="selectQuestionIdByUserName" resultType="int">
     SELECT questionId FROM tb_answer WHERE answerUserName=#{0} OR replayUserName=#{0}
   </select>
-  
+
+  <select id="getAnswers" resultType="com.aolei.spider.entity.QuestionEntity">
+    SELECT * FROM tb_quesion WHERE questionId = #{0}
+  </select>
 </mapper>

@@ -1,5 +1,6 @@
 package com.aolei.spider.controller;
 
+import com.aolei.spider.entity.AnswerEntity;
 import com.aolei.spider.entity.QuestionEntity;
 import com.aolei.spider.service.QuestionService;
 import com.aolei.spider.util.CommonStaticValue;
@@ -75,6 +76,15 @@ public class QuestionController extends BaseController{
             ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,questionEntities);
         }else{
             ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,questionEntities,"暂未回答问题");
+        }
+    }
+    @RequestMapping("getAnswer")
+    public void getAnswers(@RequestParam(value = "questionId") int questionId,HttpServletResponse response){
+        List<AnswerEntity> answerEntities = questionService.getAnswer(questionId);
+        if (answerEntities != null && !answerEntities.isEmpty()){
+            ReturnResultUtils.outWriteResult(response,answerEntities);
+        }else{
+            ReturnResultUtils.outWriteResult(response,answerEntities,"暂无回答,去回答一下吧");
         }
     }
 }

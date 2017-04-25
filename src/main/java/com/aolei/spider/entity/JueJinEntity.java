@@ -11,11 +11,22 @@ public class JueJinEntity {
 
     private String imagelink;
 
+    private String tbName = "tb_juejin";
+
+    public String getTbName() {
+        return tbName;
+    }
+
+    public void setTbName(String tbName) {
+        this.tbName = tbName;
+    }
+
     public JueJinEntity(Integer id, String title, String author, String link, String imagelink) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.link = link;
+
         this.imagelink = imagelink;
     }
 

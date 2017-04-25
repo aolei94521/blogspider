@@ -1,5 +1,6 @@
 package com.aolei.spider.service;
 
+import com.aolei.spider.entity.AnswerEntity;
 import com.aolei.spider.entity.QuestionEntity;
 import org.springframework.stereotype.Service;
 
@@ -59,4 +60,11 @@ public interface QuestionService {
      * @return
      */
     List<QuestionEntity> getMyAnswerQuestion(String userName);
+
+    /**
+     * 获取回复列表
+     * @param questionId
+     * @return
+     */
+    List<AnswerEntity> getAnswer(int questionId);
 }

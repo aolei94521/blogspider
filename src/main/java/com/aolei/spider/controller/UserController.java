@@ -44,9 +44,9 @@ public class UserController extends BaseController{
     @RequestMapping(value = "userLogin", method = {RequestMethod.GET})
     public void userLogin(@RequestParam(value="userName",required = true) String userName,@RequestParam(value="userPwd",required = true) String userPwd, HttpServletResponse response){
         if (userService.userLogin(userName,userPwd)){
-            ReturnResultUtils.outWriteResult(response,"[]","登录成功");
+            ReturnResultUtils.outWriteResultForRegist(response,"登录成功");
         }else{
-            ReturnResultUtils.outWriteResult(response,"[]","登录失败,请检查您的登陆信息");
+            ReturnResultUtils.outWriteResultForRegist(response,"登录失败,请检查您的登陆信息");
         }
     }
 }

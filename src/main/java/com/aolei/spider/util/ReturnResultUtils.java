@@ -99,7 +99,7 @@ public class ReturnResultUtils {
         if (resultString.length >= 2 && (resultString[1] != null || !"".equals(resultString[1]))){
             jsonResultUtils.setMsg((String)resultString[1]);
             jsonResultUtils.setStatus(0);
-            jsonResultUtils.setObj("");
+            jsonResultUtils.setObj("[]");
             return JSON.toJSONString(jsonResultUtils);
         }
         jsonResultUtils.setObj(resultString[0]);
@@ -122,7 +122,7 @@ public class ReturnResultUtils {
         if (resultString.length >= 2 && (resultString[1] != null || !"".equals(resultString[1]))){
             pagingResultUtils.setMsg((String)resultString[1]);
             pagingResultUtils.setStatus(0);
-            pagingResultUtils.setObj("");
+            pagingResultUtils.setObj("[]");
             pagingResultUtils.setStart(start);
             pagingResultUtils.setMore(more);
             return JSON.toJSONString(pagingResultUtils);

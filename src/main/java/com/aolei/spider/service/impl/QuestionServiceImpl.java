@@ -97,4 +97,8 @@ public class QuestionServiceImpl extends BaseService implements QuestionService{
         }
         return questionEntities;
     }
+
+    public List<AnswerEntity> getAnswer(int questionId) {
+        return answerEntityMapper.getAnswers(questionId);
+    }
 }

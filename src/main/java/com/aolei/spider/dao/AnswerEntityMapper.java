@@ -55,4 +55,6 @@ public interface AnswerEntityMapper {
     int updateByPrimaryKey(AnswerEntity record);
 
     List<Integer> selectQuestionIdByUserName(String userName);
+
+    List<AnswerEntity> getAnswers(int quesiontId);
 }

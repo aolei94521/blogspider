@@ -22,11 +22,14 @@ public class CNBlogController extends BaseController{
     @Resource
     CNBlogService cnBlogService;
     @RequestMapping(value = "getCnblog",method = {RequestMethod.GET})
-    public void getJunJinList(@RequestParam(value = "start")int start, @RequestParam(value = "count")int count, HttpServletResponse response){
+    public void getJunJinList(@RequestParam(value = "start")int start, @RequestParam(value = "count")int count, @RequestParam(value = "userName") String userName,@RequestParam(value = "tbName") String tbName,@RequestParam(value = "type") int type, HttpServletResponse response){
         List<CNBlogsEntity> cnBlogsEntities = cnBlogService.getCnblog(start,count);
         if (cnBlogsEntities != null && !cnBlogsEntities.isEmpty()){
             int size = cnBlogsEntities.size();
             int nextStart = cnBlogsEntities.get(size - 1).getId();
+            for (CNBlogsEntity cnBlog: cnBlogsEntities) {
+
+            }
             if (cnBlogsEntities.size() < count){
                 ReturnResultUtils.outWriteResultList(response, CommonStaticValue.NOMORE,nextStart,cnBlogsEntities);
             }else{

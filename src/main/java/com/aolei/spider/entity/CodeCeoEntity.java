@@ -13,6 +13,15 @@ public class CodeCeoEntity {
 
     private String tbName="tb_manong";
 
+    private int collectionStatus = 0;//默认未收藏
+    public int getCollectionStatus() {
+        return collectionStatus;
+    }
+
+    public void setCollectionStatus(int collectionStatus) {
+        this.collectionStatus = collectionStatus;
+    }
+
     public CodeCeoEntity(Integer id, String title, String content, String link, String imagelink) {
         this.id = id;
         this.title = title;

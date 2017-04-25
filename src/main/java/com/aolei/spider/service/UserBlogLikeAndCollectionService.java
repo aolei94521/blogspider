@@ -1,5 +1,6 @@
 package com.aolei.spider.service;
 
+import com.aolei.spider.entity.UserLikeAndCollectionEntity;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,4 +18,13 @@ public interface UserBlogLikeAndCollectionService {
      * @return
      */
     int blogLike(String userName,int blogId,int type,int status,String tbName);
+
+    /**
+     * 获取用户点赞过或者收藏过的
+     * @param userName
+     * @param type
+     * @param tbName
+     * @return
+     */
+    UserLikeAndCollectionEntity selectStatus(String userName,int type,String tbName,int blogId);
 }

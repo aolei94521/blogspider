@@ -13,6 +13,15 @@ public class CNBlogsEntity {
 
     private String tbName="tb_cnblogs";
 
+    private int collectionStatus = 0;//默认未收藏
+    public int getCollectionStatus() {
+        return collectionStatus;
+    }
+
+    public void setCollectionStatus(int collectionStatus) {
+        this.collectionStatus = collectionStatus;
+    }
+
     public CNBlogsEntity(Integer id, String title, String author, String content, String link) {
         this.id = id;
         this.title = title;

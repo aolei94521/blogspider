@@ -3,12 +3,11 @@ package com.aolei.spider.controller;
 import com.aolei.spider.entity.TuiKuEntity;
 import com.aolei.spider.service.TuiKuService;
 import com.aolei.spider.util.CommonStaticValue;
-import com.aolei.spider.util.CommonUtils;
-import com.aolei.spider.util.NumberUtils;
 import com.aolei.spider.util.ReturnResultUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -40,12 +39,10 @@ public class TuiKuController extends BaseController{
         }
     }
     @RequestMapping(value = "getTuiKuList", method = {RequestMethod.GET})
-    void getTuiKuList(HttpServletRequest request,HttpServletResponse response){
-        int start = NumberUtils.toInt(request.getParameter("start"));
-        int count = NumberUtils.toInt(request.getParameter("count"));
+    void getTuiKuList(@RequestParam(value = "start")int start, @RequestParam(value = "count")int count, HttpServletResponse response){
         List<TuiKuEntity> tuiKuEntities = tuiKuService.getTuiKuList(start,count);
         /**将数据返回**/
-        if (!CommonUtils.listIsEmputyOrNull(tuiKuEntities)){
+        if (tuiKuEntities != null && !tuiKuEntities.isEmpty()){
             int size = tuiKuEntities.size();
             int nextStart = tuiKuEntities.get(size - 1).getId();
             if (tuiKuEntities.size() < count){

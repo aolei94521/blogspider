@@ -20,4 +20,5 @@ public class CommonStaticValue {
     public static final int DISLIKESTATUS = 2;//取消点赞或收藏
     public static final int NORMAL = 1;//问题有效
     public static final int UNNORMAL = 2;//问题无效
+    public static final int CONLLECTIONORLIKE=1;//收藏或者点赞
 }

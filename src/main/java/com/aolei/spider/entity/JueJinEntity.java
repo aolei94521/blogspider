@@ -13,6 +13,8 @@ public class JueJinEntity {
 
     private String tbName = "tb_juejin";
 
+    private int collectionStatus = 0;//默认未收藏
+
     public String getTbName() {
         return tbName;
     }
@@ -74,6 +76,13 @@ public class JueJinEntity {
         this.imagelink = imagelink == null ? null : imagelink.trim();
     }
 
+    public int getCollectionStatus() {
+        return collectionStatus;
+    }
+
+    public void setCollectionStatus(int collectionStatus) {
+        this.collectionStatus = collectionStatus;
+    }
     @Override
     public String toString() {
         return "JueJinEntity{" +

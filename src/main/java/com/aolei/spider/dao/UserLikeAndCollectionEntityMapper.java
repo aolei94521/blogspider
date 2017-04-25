@@ -10,4 +10,6 @@ public interface UserLikeAndCollectionEntityMapper {
     int updateByPrimaryKeySelective(UserLikeAndCollectionEntity record);
 
     UserLikeAndCollectionEntity selectByTbNameAndTypeAndUserName(int blogId,String userName,int type);
+
+    UserLikeAndCollectionEntity selectStatus(String userName,int type,String tbName,int blogId);
 }

@@ -32,5 +32,7 @@
   <select id="selectByTbNameAndTypeAndUserName" resultType="com.aolei.spider.entity.UserLikeAndCollectionEntity">
     SELECT * FROM tb_user_like_and_collection WHERE blogId = #{0} AND userName = #{1} AND type = #{2} ;
   </select>
-
+  <select id="selectStatus" resultType="com.aolei.spider.entity.UserLikeAndCollectionEntity">
+    SELECT * FROM tb_user_like_and_collection WHERE userName=#{0} AND type=#{1} AND tbName=#{2} AND status=1 AND blogId=#{3}
+  </select>
 </mapper>

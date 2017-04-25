@@ -54,6 +54,11 @@ public class UserBlogLikeAndCollectionServiceImpl extends CommonLoggerUtil imple
         }
         return result;
     }
+
+    public UserLikeAndCollectionEntity selectStatus(String userName, int type, String tbName,int blogId) {
+        return userLikeAndCollectionMapper.selectStatus(userName,type,tbName, blogId);
+    }
+
     private void updateTbLike(int blogId,String tbName,int status){
         LikeEntity likeEntity = new LikeEntity();
         likeEntity.setTbname(tbName);

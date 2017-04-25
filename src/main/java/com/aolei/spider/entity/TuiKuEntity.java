@@ -16,6 +16,15 @@ public class TuiKuEntity {
     private String imgurl;
 
     private String tbName="tb_tuiku";
+
+    private int collectionStatus = 0;//默认未收藏
+    public int getCollectionStatus() {
+        return collectionStatus;
+    }
+
+    public void setCollectionStatus(int collectionStatus) {
+        this.collectionStatus = collectionStatus;
+    }
     public TuiKuEntity(Integer id, String title, String auther, Date time, String url, String imgurl) {
         this.id = id;
         this.title = title;

@@ -66,7 +66,8 @@ public class QuestionController extends BaseController{
     }
     @RequestMapping("answer")
     public void answerQuestion(@RequestParam(value = "questionId") int questionId,@RequestParam(value = "userName")String userName,@RequestParam(value = "content",required = false)String content,@RequestParam(value = "replayUserName",required = false)String replayUserName,@RequestParam(value = "replayContent",required = false)String replayContent,HttpServletResponse response){
-        questionService.answerQuestion(questionId,userName,content,replayUserName,replayUserName);
+
+        questionService.answerQuestion(questionId,userName,content,replayUserName,replayContent);
         ReturnResultUtils.outWriteResult(response,"[]","回复成功");
     }
     @RequestMapping("myAnswer")

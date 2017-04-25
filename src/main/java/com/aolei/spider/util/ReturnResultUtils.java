@@ -93,16 +93,16 @@ public class ReturnResultUtils {
      * @param resultString
      * @return json字符串
      */
-    private static String getResultJsonFormate(Object ... resultString){
+    private static String   getResultJsonFormate(Object ... resultString){
         JSONResultUtils jsonResultUtils = new JSONResultUtils();
         //判断是否带有错误信息,如果不为空或者不是""则带有错误信息
-        //if (resultString.length >= 2 && (resultString[1] != null || !"".equals(resultString[1]))){
+        if (resultString.length >= 2 && (resultString[1] != null || !"".equals(resultString[1]))){
+            jsonResultUtils.setMsg((String)resultString[1]);
+            jsonResultUtils.setStatus(0);
+            jsonResultUtils.setObj("[]");
+            JSON.toJSONString(jsonResultUtils);
+        }
 
-            //jsonResultUtils.setStatus(0);
-            //jsonResultUtils.setObj("[]");
-            //return JSON.toJSONString(jsonResultUtils);
-        //}
-        jsonResultUtils.setMsg((String)resultString[1]);
         jsonResultUtils.setObj(resultString[0]);
         jsonResultUtils.setStatus(1);
         jsonResultUtils.setMsg("");

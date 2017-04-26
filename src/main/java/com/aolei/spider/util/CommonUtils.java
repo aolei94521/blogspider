@@ -87,6 +87,21 @@ public class CommonUtils extends CommonLoggerUtil{
         return requestTargetUrlsList;
     }
 
+    /**
+     * CSDN关键字博客查询的链接
+     * @param params
+     * @return
+     */
+    public static List<String> getCSDNSearchTargetUrls(String params){
+        final String BEFORE = "http://so.csdn.net/so/search/s.do?p=1&q=";
+        final String LATTER = "&t=blog&domain=&o=&s=&u=null&l=null&f=null";
+        List<String> csdnRequestTargetUrlList = new ArrayList<String>();
+        for (int pageIndex = 2;pageIndex <= 15;pageIndex++){
+            csdnRequestTargetUrlList.add(BEFORE+params+LATTER);
+        }
+        return csdnRequestTargetUrlList;
+    }
+
     public static <T>  boolean listIsEmputyOrNull(List<T> list){
         boolean listIsEmputyOrNull = false;
         if (list == null || list.isEmpty()){

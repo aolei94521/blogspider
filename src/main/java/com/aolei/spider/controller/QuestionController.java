@@ -35,12 +35,25 @@ public class QuestionController extends BaseController{
         questionService.applyQuestion(userName,title,content);
         ReturnResultUtils.outWriteSuccess(response,"发布成功","[]");
     }
+
+    /**
+     * 删除问题
+     * @param id
+     * @param response
+     */
     @RequestMapping(value = "deleteQuestion", method={RequestMethod.GET})
     public void deleteQuestion(@RequestParam(value = "id") int id,HttpServletResponse response){
         questionService.deleteQuestion(id);
         ReturnResultUtils.outWriteSuccess(response,"删除成功","[]");
 
     }
+
+    /**
+     * 点赞
+     * @param id
+     * @param likeStatus
+     * @param response
+     */
     @RequestMapping(value = "like",method = {RequestMethod.GET})
     public void likeQuestion(@RequestParam(value = "id") int id,@RequestParam(value = "likeStatus") int likeStatus,HttpServletResponse response){
         questionService.likeQuestion(id,likeStatus);
@@ -62,6 +75,11 @@ public class QuestionController extends BaseController{
         }
     }
 
+    /**
+     * 我发布的问题
+     * @param userName
+     * @param response
+     */
     @RequestMapping("myQuestions")
     public void getMyQuestion(@RequestParam(value = "userName") String userName,HttpServletResponse response){
         List<QuestionEntity> questionEntities = questionService.getQuestionByName(userName);
@@ -71,6 +89,16 @@ public class QuestionController extends BaseController{
             ReturnResultUtils.outWriteSuccess(response,"暂时没有发布问题,去发布一个吧",questionEntities);
         }
     }
+
+    /**
+     * 回答问题
+     * @param questionId
+     * @param userName
+     * @param content
+     * @param replayUserName
+     * @param replayContent
+     * @param response
+     */
     @RequestMapping("answer")
     public void answerQuestion(@RequestParam(value = "questionId") int questionId,@RequestParam(value = "userName")String userName,@RequestParam(value = "content",required = false)String content,@RequestParam(value = "replayUserName",required = false)String replayUserName,@RequestParam(value = "replayContent",required = false)String replayContent,HttpServletResponse response){
 

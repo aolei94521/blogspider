@@ -33,9 +33,9 @@ public class TuiKuController extends BaseController{
     void getAllTuiKu(HttpServletRequest request, HttpServletResponse response){
         List<TuiKuEntity> tuiKuEntities = tuiKuService.getAllTuiKu();
         if (tuiKuEntities != null && !tuiKuEntities.isEmpty()){
-            ReturnResultUtils.outWriteResult(response,tuiKuEntities);
+            ReturnResultUtils.outWriteSuccess(response,"",tuiKuEntities);
         }else{
-            ReturnResultUtils.outWriteResult(response,tuiKuEntities,"您查询的数据为空");
+            ReturnResultUtils.outWriteUnSuccess(response,"您查询的数据为空",tuiKuEntities);
         }
     }
     @RequestMapping(value = "getTuiKuList", method = {RequestMethod.GET})
@@ -46,13 +46,13 @@ public class TuiKuController extends BaseController{
             int size = tuiKuEntities.size();
             int nextStart = tuiKuEntities.get(size - 1).getId();
             if (tuiKuEntities.size() < count){
-                ReturnResultUtils.outWriteResultList(response, CommonStaticValue.NOMORE,nextStart,tuiKuEntities);
+                ReturnResultUtils.outWriteUnSuccessList(response, CommonStaticValue.NOMORE,nextStart,"",tuiKuEntities);
             }else{
 
-                ReturnResultUtils.outWriteResultList(response,CommonStaticValue.HASMORE,nextStart,tuiKuEntities);
+                ReturnResultUtils.outWriteUnSuccessList(response,CommonStaticValue.HASMORE,nextStart,"",tuiKuEntities);
             }
         }else{
-            ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,tuiKuEntities,"没有更多了");
+            ReturnResultUtils.outWriteUnSuccessList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"没有更多了",tuiKuEntities);
         }
     }
 }

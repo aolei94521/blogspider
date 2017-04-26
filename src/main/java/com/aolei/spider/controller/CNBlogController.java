@@ -31,12 +31,12 @@ public class CNBlogController extends BaseController{
 
             }
             if (cnBlogsEntities.size() < count){
-                ReturnResultUtils.outWriteResultList(response, CommonStaticValue.NOMORE,nextStart,cnBlogsEntities);
+                ReturnResultUtils.outWriteSuccessList(response, CommonStaticValue.NOMORE,nextStart,"",cnBlogsEntities);
             }else{
-                ReturnResultUtils.outWriteResultList(response,CommonStaticValue.HASMORE,nextStart,cnBlogsEntities);
+                ReturnResultUtils.outWriteSuccessList(response,CommonStaticValue.HASMORE,nextStart,"",cnBlogsEntities);
             }
         }else{
-            ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,cnBlogsEntities,"没有更多了");
+            ReturnResultUtils.outWriteUnSuccessList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"没有更多了",cnBlogsEntities);
         }
     }
 }

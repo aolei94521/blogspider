@@ -29,12 +29,12 @@ public class CodeCeoController extends BaseController{
             int size = codeCeoEntities.size();
             int nextStart = codeCeoEntities.get(size - 1).getId();
             if (codeCeoEntities.size() < count){
-                ReturnResultUtils.outWriteResultList(response, CommonStaticValue.NOMORE,nextStart,codeCeoEntities);
+                ReturnResultUtils.outWriteSuccessList(response, CommonStaticValue.NOMORE,nextStart,"",codeCeoEntities);
             }else{
-                ReturnResultUtils.outWriteResultList(response,CommonStaticValue.HASMORE,nextStart,codeCeoEntities);
+                ReturnResultUtils.outWriteSuccessList(response,CommonStaticValue.HASMORE,nextStart,"",codeCeoEntities);
             }
         }else{
-            ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,codeCeoEntities,"没有更多了");
+            ReturnResultUtils.outWriteUnSuccessList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"没有更多了",codeCeoEntities);
         }
     }
 }

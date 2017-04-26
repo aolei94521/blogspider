@@ -23,27 +23,27 @@ public class ViewRecordController extends BaseController{
     public void addViewRecord(@RequestParam(value = "userName") String userName, @RequestParam(value = "blogId") int blogId, @RequestParam(value = "tbName") String tbName, HttpServletResponse response){
         int result = viewRecordService.addViewRecord(blogId,tbName,userName);
         if (result > 0){
-            ReturnResultUtils.outWriteResult(response,"[]","操作成功");
+            ReturnResultUtils.outWriteSuccess(response,"[]","操作成功");
         }else{
-            ReturnResultUtils.outWriteResult(response,"操作成功","操作失败");
+            ReturnResultUtils.outWriteUnSuccess(response,"[]","操作失败");
         }
     }
     @RequestMapping(value = "deleteReocrd",method = {RequestMethod.GET})
     public void deleteViewRecord(@RequestParam(value="recordId") int recordId,HttpServletResponse response){
         int result = viewRecordService.deleteViewRecord(recordId);
         if (result > 0){
-            ReturnResultUtils.outWriteResult(response,"[]","删除成功");
+            ReturnResultUtils.outWriteSuccess(response,"[]","删除成功");
         }else{
-            ReturnResultUtils.outWriteResult(response,"[]","删除失败");
+            ReturnResultUtils.outWriteUnSuccess(response,"[]","删除失败");
         }
     }
     @RequestMapping(value = "deleteAll",method = {RequestMethod.GET})
     public void deleteAllRecord(@RequestParam(value="userName") String userName,HttpServletResponse response){
         int result = viewRecordService.deleteAllViewReocrd(userName);
         if (result > 0){
-            ReturnResultUtils.outWriteResult(response,"[]","删除成功");
+            ReturnResultUtils.outWriteSuccess(response,"[]","删除成功");
         }else{
-            ReturnResultUtils.outWriteResult(response,"[]","删除失败");
+            ReturnResultUtils.outWriteUnSuccess(response,"[]","删除失败");
         }
     }
 }

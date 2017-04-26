@@ -28,12 +28,12 @@ public class JueJinController extends BaseController{
             int size = jueJinEntities.size();
             int nextStart = jueJinEntities.get(size - 1).getId();
             if (jueJinEntities.size() < count){
-                ReturnResultUtils.outWriteResultList(response, CommonStaticValue.NOMORE,nextStart,jueJinEntities);
+                ReturnResultUtils.outWriteSuccessList(response, CommonStaticValue.NOMORE,nextStart,"",jueJinEntities);
             }else{
-                ReturnResultUtils.outWriteResultList(response,CommonStaticValue.HASMORE,nextStart,jueJinEntities);
+                ReturnResultUtils.outWriteSuccessList(response,CommonStaticValue.HASMORE,nextStart,"",jueJinEntities);
             }
         }else{
-            ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,jueJinEntities,"没有更多了");
+            ReturnResultUtils.outWriteUnSuccessList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"没有更多了",jueJinEntities);
         }
     }
 

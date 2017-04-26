@@ -32,7 +32,9 @@ public class CheckController extends BaseController{
             checkEntity = new CheckEntity();
             checkEntity.setStatus(CommonStaticValue.CONLLECTIONORLIKE);
             checkEntities.add(checkEntity);
+            ReturnResultUtils.outWriteSuccess(response,"",checkEntity);
+        }else{
+            ReturnResultUtils.outWriteUnSuccess(response,"",checkEntities);
         }
-        ReturnResultUtils.outWriteResult(response,checkEntities);
     }
 }

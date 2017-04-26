@@ -38,9 +38,9 @@ public class UserBlogLikeAndCollectController extends BaseController{
     public void bolgLike(@RequestParam(value="userName",required = true) String userName, @RequestParam(value="blogId",required = true) int blogId, @RequestParam(value="type",required = true) int type, @RequestParam(value="status",required = true) int status, @RequestParam(value="tbName",required = true) String tbName, HttpServletResponse response){
         int result = blogLikeService.blogLike(userName,blogId,type,status,tbName);
         if (result > 0){
-            ReturnResultUtils.outWriteResult(response,"[]","操作成功");
+            ReturnResultUtils.outWriteSuccess(response,"[]","操作成功");
         }else{
-            ReturnResultUtils.outWriteResult(response,"[]","操作失败");
+            ReturnResultUtils.outWriteUnSuccess(response,"[]","操作失败");
         }
     }
 
@@ -63,9 +63,9 @@ public class UserBlogLikeAndCollectController extends BaseController{
              result = blogCommentService.blogReplay(tbName,userName,content,replayUserName,replayContent,blogId);
         }
         if (result > 0){
-            ReturnResultUtils.outWriteResult(response,"[]","评论成功");
+            ReturnResultUtils.outWriteSuccess(response,"[]","评论成功");
         }else{
-            ReturnResultUtils.outWriteResult(response,"[]","评论失败");
+            ReturnResultUtils.outWriteUnSuccess(response,"[]","评论失败");
         }
     }
     @RequestMapping(value = "getComments",method = {RequestMethod.GET})
@@ -76,12 +76,12 @@ public class UserBlogLikeAndCollectController extends BaseController{
             int size = commentEntityList.size();
             int nextStart = commentEntityList.get(size - 1).getId();
             if (size > count){
-                ReturnResultUtils.outWriteResultList(response, CommonStaticValue.HASMORE,nextStart,commentEntityList);
+                ReturnResultUtils.outWriteUnSuccessList(response, CommonStaticValue.HASMORE,nextStart,"",commentEntityList);
             }else{
-                ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,nextStart,commentEntityList);
+                ReturnResultUtils.outWriteUnSuccessList(response,CommonStaticValue.NOMORE,nextStart,"",commentEntityList);
             }
         }else{
-            ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,commentEntityList,"暂无评论");
+            ReturnResultUtils.outWriteUnSuccessList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"暂无评论",commentEntityList);
         }
     }
 }

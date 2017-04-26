@@ -29,9 +29,9 @@ public class UserController extends BaseController{
     public void userRegist(@RequestParam(value="userName",required = true) String userName,@RequestParam(value="userPwd",required = true) String userPwd, HttpServletResponse response){
         int registSuccuss = userService.userRegist(userName,userPwd);
         if (registSuccuss > 0){//注册成功
-            ReturnResultUtils.outWriteResult(response,"[]","注册成功");
+            ReturnResultUtils.outWriteSuccess(response,"[]","注册成功");
         }else{
-            ReturnResultUtils.outWriteResult(response,"[]","注册失败请重新注册");
+            ReturnResultUtils.outWriteUnSuccess(response,"[]","注册失败请重新注册");
         }
     }
 

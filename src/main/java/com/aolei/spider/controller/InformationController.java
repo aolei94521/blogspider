@@ -30,25 +30,13 @@ public class InformationController extends BaseController {
         List<InformationEntity> list = service.getAllInformation();
         logger.debug("======================================"+list.size());
         if (list != null && !list.isEmpty()){
-            ReturnResultUtils.outWriteResult(response, list);
+            ReturnResultUtils.outWriteSuccess(response, "",list);
         }else{
-            ReturnResultUtils.outWriteResult(response,list,"您查询的数据为空");
+            ReturnResultUtils.outWriteUnSuccess(response,"您查询的数据为空",list);
         }
 
     }
 
-    /*@RequestMapping(value = "addInfo", method = {RequestMethod.GET})
-    public void add(HttpServletRequest request, HttpServletResponse response) {
-        InformationEntity entity = new InformationEntity();
-        entity.setReadcount(request.getParameter("re"));
-        entity.setTitle("1");
-        entity.setRecomment("sddf");
-        entity.setPereview("sdf");
-        entity.setTime(new Date());
-        entity.setUrl("sdfsdf");
-        service.addCSDNInformation(entity);
-        ReturnResultUtils.outWriteResult(response);
-    }*/
     @RequestMapping(value="getInfoList" ,method = {RequestMethod.GET})
     public void getInfoList(HttpServletRequest request,HttpServletResponse response){
           int start = NumberUtils.toInt(request.getParameter("start"));
@@ -60,12 +48,12 @@ public class InformationController extends BaseController {
             int size = informationEntities.size();
             int nextStart = informationEntities.get(size - 1).getId();
             if (informationEntities.size() < count){
-                ReturnResultUtils.outWriteResultList(response, CommonStaticValue.NOMORE,nextStart,informationEntities);
+                ReturnResultUtils.outWriteSuccessList(response, CommonStaticValue.NOMORE,nextStart,"",informationEntities);
             }else{
-                ReturnResultUtils.outWriteResultList(response,CommonStaticValue.HASMORE,nextStart,informationEntities);
+                ReturnResultUtils.outWriteSuccessList(response,CommonStaticValue.HASMORE,nextStart,"",informationEntities);
             }
         }else{
-              ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,informationEntities,"没有更多了");
+              ReturnResultUtils.outWriteUnSuccessList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"没有更多了",informationEntities);
           }
     }
 }

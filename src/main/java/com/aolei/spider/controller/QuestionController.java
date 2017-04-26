@@ -26,18 +26,18 @@ public class QuestionController extends BaseController{
     @RequestMapping(value = "addQuestion",method = {RequestMethod.GET})
     public void applyQuestioin(@RequestParam(value = "userName") String userName, @RequestParam(value = "title") String title, @RequestParam(value = "content") String content, HttpServletResponse response){
         questionService.applyQuestion(userName,title,content);
-        ReturnResultUtils.outWriteResult(response,"[]","发布成功");
+        ReturnResultUtils.outWriteSuccess(response,"[]","发布成功");
     }
     @RequestMapping(value = "deleteQuestion", method={RequestMethod.GET})
     public void deleteQuestion(@RequestParam(value = "id") int id,HttpServletResponse response){
         questionService.deleteQuestion(id);
-        ReturnResultUtils.outWriteResult(response,"[]","删除成功");
+        ReturnResultUtils.outWriteSuccess(response,"[]","删除成功");
 
     }
     @RequestMapping(value = "like",method = {RequestMethod.GET})
     public void likeQuestion(@RequestParam(value = "id") int id,@RequestParam(value = "likeStatus") int likeStatus,HttpServletResponse response){
         questionService.likeQuestion(id,likeStatus);
-        ReturnResultUtils.outWriteResult(response,"[]","操作成功");
+        ReturnResultUtils.outWriteSuccess(response,"[]","操作成功");
     }
     @RequestMapping(value = "allQuestion",method = {RequestMethod.GET})
     public void getAllQuesion(@RequestParam(value = "start") int start,@RequestParam(value = "count") int count,HttpServletResponse response){
@@ -46,12 +46,12 @@ public class QuestionController extends BaseController{
             int size = questionEntityList.size();
             int nextStart = questionEntityList.get(size - 1).getId();
             if (size < count){
-                ReturnResultUtils.outWriteResultList(response, CommonStaticValue.NOMORE,nextStart,questionEntityList);
+                ReturnResultUtils.outWriteSuccessList(response, CommonStaticValue.NOMORE,nextStart,"",questionEntityList);
             }else{
-                ReturnResultUtils.outWriteResultList(response, CommonStaticValue.HASMORE,nextStart,questionEntityList,"没有更多了");
+                ReturnResultUtils.outWriteSuccessList(response, CommonStaticValue.HASMORE,nextStart,"没有更多了",questionEntityList);
             }
         }else{
-            ReturnResultUtils.outWriteResultList(response, CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"暂无问题，发布一个吧");
+            ReturnResultUtils.outWriteUnSuccessList(response, CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"暂无问题，发布一个吧",questionEntityList);
         }
     }
 
@@ -59,33 +59,33 @@ public class QuestionController extends BaseController{
     public void getMyQuestion(@RequestParam(value = "userName") String userName,HttpServletResponse response){
         List<QuestionEntity> questionEntities = questionService.getQuestionByName(userName);
         if (questionEntities != null && !questionEntities.isEmpty()){
-            ReturnResultUtils.outWriteResult(response,questionEntities);
+            ReturnResultUtils.outWriteSuccess(response,"",questionEntities);
         }else{
-            ReturnResultUtils.outWriteResult(response,questionEntities,"暂时没有发布问题,去发布一个吧");
+            ReturnResultUtils.outWriteSuccess(response,"暂时没有发布问题,去发布一个吧",questionEntities);
         }
     }
     @RequestMapping("answer")
     public void answerQuestion(@RequestParam(value = "questionId") int questionId,@RequestParam(value = "userName")String userName,@RequestParam(value = "content",required = false)String content,@RequestParam(value = "replayUserName",required = false)String replayUserName,@RequestParam(value = "replayContent",required = false)String replayContent,HttpServletResponse response){
 
         questionService.answerQuestion(questionId,userName,content,replayUserName,replayContent);
-        ReturnResultUtils.outWriteResult(response,"[]","回复成功");
+        ReturnResultUtils.outWriteSuccess(response,"[]","回复成功");
     }
     @RequestMapping("myAnswer")
     public void myAnswerQuestion(@RequestParam(value = "userName") String userName,HttpServletResponse response){
         List<QuestionEntity> questionEntities = questionService.getMyAnswerQuestion(userName);
         if (questionEntities != null && !questionEntities.isEmpty()){
-            ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,questionEntities);
+            ReturnResultUtils.outWriteSuccessList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"",questionEntities);
         }else{
-            ReturnResultUtils.outWriteResultList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,questionEntities,"暂未回答问题");
+            ReturnResultUtils.outWriteUnSuccessList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"暂未回答问题",questionEntities);
         }
     }
     @RequestMapping("getAnswer")
     public void getAnswers(@RequestParam(value = "questionId") int questionId,HttpServletResponse response){
         List<AnswerEntity> answerEntities = questionService.getAnswer(questionId);
         if (answerEntities != null && !answerEntities.isEmpty()){
-            ReturnResultUtils.outWriteResult(response,answerEntities);
+            ReturnResultUtils.outWriteSuccess(response,"",answerEntities);
         }else{
-            ReturnResultUtils.outWriteResult(response,answerEntities,"暂无回答,去回答一下吧");
+            ReturnResultUtils.outWriteSuccess(response,"暂无回答,去回答一下吧",answerEntities);
         }
     }
 }

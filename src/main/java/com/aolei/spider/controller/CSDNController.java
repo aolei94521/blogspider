@@ -38,8 +38,4 @@ public class CSDNController extends BaseController{
             ReturnResultUtils.outWriteUnSuccessList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"没有更多了",csdnEntities);
         }
     }
-    @RequestMapping("test")
-    public void test(HttpServletResponse response){
-        ReturnResultUtils.outWriteSuccess(response,"testst","");
-    }
 }

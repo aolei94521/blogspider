@@ -23,21 +23,28 @@ public class QuestionController extends BaseController{
     @Resource
     private QuestionService questionService;
 
+    /**
+     * 发布问题
+     * @param userName
+     * @param title
+     * @param content
+     * @param response
+     */
     @RequestMapping(value = "addQuestion",method = {RequestMethod.GET})
     public void applyQuestioin(@RequestParam(value = "userName") String userName, @RequestParam(value = "title") String title, @RequestParam(value = "content") String content, HttpServletResponse response){
         questionService.applyQuestion(userName,title,content);
-        ReturnResultUtils.outWriteSuccess(response,"[]","发布成功");
+        ReturnResultUtils.outWriteSuccess(response,"发布成功","[]");
     }
     @RequestMapping(value = "deleteQuestion", method={RequestMethod.GET})
     public void deleteQuestion(@RequestParam(value = "id") int id,HttpServletResponse response){
         questionService.deleteQuestion(id);
-        ReturnResultUtils.outWriteSuccess(response,"[]","删除成功");
+        ReturnResultUtils.outWriteSuccess(response,"删除成功","[]");
 
     }
     @RequestMapping(value = "like",method = {RequestMethod.GET})
     public void likeQuestion(@RequestParam(value = "id") int id,@RequestParam(value = "likeStatus") int likeStatus,HttpServletResponse response){
         questionService.likeQuestion(id,likeStatus);
-        ReturnResultUtils.outWriteSuccess(response,"[]","操作成功");
+        ReturnResultUtils.outWriteSuccess(response,"操作成功","[]");
     }
     @RequestMapping(value = "allQuestion",method = {RequestMethod.GET})
     public void getAllQuesion(@RequestParam(value = "start") int start,@RequestParam(value = "count") int count,HttpServletResponse response){
@@ -68,7 +75,7 @@ public class QuestionController extends BaseController{
     public void answerQuestion(@RequestParam(value = "questionId") int questionId,@RequestParam(value = "userName")String userName,@RequestParam(value = "content",required = false)String content,@RequestParam(value = "replayUserName",required = false)String replayUserName,@RequestParam(value = "replayContent",required = false)String replayContent,HttpServletResponse response){
 
         questionService.answerQuestion(questionId,userName,content,replayUserName,replayContent);
-        ReturnResultUtils.outWriteSuccess(response,"[]","回复成功");
+        ReturnResultUtils.outWriteSuccess(response,"回复成功","[]");
     }
     @RequestMapping("myAnswer")
     public void myAnswerQuestion(@RequestParam(value = "userName") String userName,HttpServletResponse response){

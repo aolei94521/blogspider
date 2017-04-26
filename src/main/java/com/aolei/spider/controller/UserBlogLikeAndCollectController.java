@@ -63,9 +63,9 @@ public class UserBlogLikeAndCollectController extends BaseController{
              result = blogCommentService.blogReplay(tbName,userName,content,replayUserName,replayContent,blogId);
         }
         if (result > 0){
-            ReturnResultUtils.outWriteSuccess(response,"[]","评论成功");
+            ReturnResultUtils.outWriteSuccess(response,"评论成功","[]");
         }else{
-            ReturnResultUtils.outWriteUnSuccess(response,"[]","评论失败");
+            ReturnResultUtils.outWriteUnSuccess(response,"评论失败","[]");
         }
     }
     @RequestMapping(value = "getComments",method = {RequestMethod.GET})

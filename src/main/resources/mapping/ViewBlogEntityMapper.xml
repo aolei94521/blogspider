@@ -130,7 +130,7 @@
   </update>
 
   <select id="getAllRecord" resultType="com.aolei.spider.entity.ViewBlogEntity">
-    SELECT * from tb_view_blog WHERE userName = #{0}
+    SELECT * from tb_view_blog WHERE userName = #{0} GROUP BY viewTime DESC
   </select>
 
   <delete id="deleteByRecordId">

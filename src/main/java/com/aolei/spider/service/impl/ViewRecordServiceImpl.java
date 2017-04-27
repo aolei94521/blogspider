@@ -39,6 +39,8 @@ public class ViewRecordServiceImpl extends BaseService implements ViewRecordServ
     ViewBlogEntityMapper viewBlogEntityMapper;
     public int addViewRecord(int blogId, String tbName, String userName) {
         ViewBlogEntity viewBlogEntity = new ViewBlogEntity();
+        viewBlogEntity.setUserName(userName);
+        viewBlogEntity.setViewTime(new Date());
         ViewRecordEntity viewRecordEntity = new ViewRecordEntity();
         viewRecordEntity.setBlogid(blogId);
         viewRecordEntity.setTbname(tbName);
@@ -54,7 +56,7 @@ public class ViewRecordServiceImpl extends BaseService implements ViewRecordServ
                 viewBlogEntity.setBlogid(tuiKuEntity.getId());
                 viewBlogEntity.setLink(tuiKuEntity.getUrl());
                 viewBlogEntity.setTbname(tuiKuEntity.getTbName());
-                viewBlogEntity.setUserName(userName);
+
             }
         }else if ("tb_manong".equals(tbName)){
             CodeCeoEntity codeCeoEntity = codeCeoEntityMapper.selectById(blogId);
@@ -64,7 +66,6 @@ public class ViewRecordServiceImpl extends BaseService implements ViewRecordServ
                 viewBlogEntity.setImagelink(codeCeoEntity.getImagelink());
                 viewBlogEntity.setBlogid(codeCeoEntity.getId());
                 viewBlogEntity.setTbname(codeCeoEntity.getTbName());
-                viewBlogEntity.setUserName(userName);
             }
         }else if ("tb_juejin".equals(tbName)){
             JueJinEntity jueJinEntity = jueJinEntityMapper.selectById(blogId);
@@ -75,7 +76,6 @@ public class ViewRecordServiceImpl extends BaseService implements ViewRecordServ
                 viewBlogEntity.setBlogid(jueJinEntity.getId());
                 viewBlogEntity.setImagelink(jueJinEntity.getImagelink());
                 viewBlogEntity.setTbname(jueJinEntity.getTbName());
-                viewBlogEntity.setUserName(userName);
             }
         }else if ("tb_cnblogs_geek".equals(tbName)){
             CSDNEntity csdnEntity = csdnEntityMapper.selectById(blogId);
@@ -86,7 +86,6 @@ public class ViewRecordServiceImpl extends BaseService implements ViewRecordServ
                 viewBlogEntity.setBlogid(csdnEntity.getId());
                 viewBlogEntity.setTime(csdnEntity.getTime());
                 viewBlogEntity.setTbname(csdnEntity.getTbName());
-                viewBlogEntity.setUserName(userName);
             }
         }else if ("tb_cnblogs".equals(tbName)){
             CNBlogsEntity cnBlogsEntity = cnBlogsEntityMapper.selectById(blogId);
@@ -97,11 +96,9 @@ public class ViewRecordServiceImpl extends BaseService implements ViewRecordServ
                 viewBlogEntity.setBlogid(cnBlogsEntity.getId());
                 viewBlogEntity.setContent(cnBlogsEntity.getContent());
                 viewBlogEntity.setTbname(cnBlogsEntity.getTbName());
-                viewBlogEntity.setUserName(userName);
             }
         }
         return viewBlogEntityMapper.insertSelective(viewBlogEntity);
-         //viewRecordEntityMapper.insertSelective(viewRecordEntity);
     }
 
     public int deleteViewRecord(int recordId,String userName) {

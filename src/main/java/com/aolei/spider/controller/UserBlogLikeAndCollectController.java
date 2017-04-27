@@ -76,9 +76,9 @@ public class UserBlogLikeAndCollectController extends BaseController{
             int size = commentEntityList.size();
             int nextStart = commentEntityList.get(size - 1).getId();
             if (size > count){
-                ReturnResultUtils.outWriteUnSuccessList(response, CommonStaticValue.HASMORE,nextStart,"",commentEntityList);
+                ReturnResultUtils.outWriteSuccessList(response, CommonStaticValue.HASMORE,nextStart,"",commentEntityList);
             }else{
-                ReturnResultUtils.outWriteUnSuccessList(response,CommonStaticValue.NOMORE,nextStart,"",commentEntityList);
+                ReturnResultUtils.outWriteSuccessList(response,CommonStaticValue.NOMORE,nextStart,"",commentEntityList);
             }
         }else{
             ReturnResultUtils.outWriteUnSuccessList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"暂无评论",commentEntityList);

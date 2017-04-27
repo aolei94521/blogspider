@@ -46,10 +46,10 @@ public class TuiKuController extends BaseController{
             int size = tuiKuEntities.size();
             int nextStart = tuiKuEntities.get(size - 1).getId();
             if (tuiKuEntities.size() < count){
-                ReturnResultUtils.outWriteUnSuccessList(response, CommonStaticValue.NOMORE,nextStart,"",tuiKuEntities);
+                ReturnResultUtils.outWriteSuccessList(response, CommonStaticValue.NOMORE,nextStart,"",tuiKuEntities);
             }else{
 
-                ReturnResultUtils.outWriteUnSuccessList(response,CommonStaticValue.HASMORE,nextStart,"",tuiKuEntities);
+                ReturnResultUtils.outWriteSuccessList(response,CommonStaticValue.HASMORE,nextStart,"",tuiKuEntities);
             }
         }else{
             ReturnResultUtils.outWriteUnSuccessList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"没有更多了",tuiKuEntities);

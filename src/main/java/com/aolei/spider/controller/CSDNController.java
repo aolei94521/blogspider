@@ -29,10 +29,10 @@ public class CSDNController extends BaseController{
             int size = csdnEntities.size();
             int nextStart = csdnEntities.get(size - 1).getId();
             if (csdnEntities.size() < count){
-                ReturnResultUtils.outWriteUnSuccessList(response, CommonStaticValue.NOMORE,nextStart,"",csdnEntities);
+                ReturnResultUtils.outWriteSuccessList(response, CommonStaticValue.NOMORE,nextStart,"",csdnEntities);
             }else{
 
-                ReturnResultUtils.outWriteUnSuccessList(response,CommonStaticValue.HASMORE,nextStart,"",csdnEntities);
+                ReturnResultUtils.outWriteSuccessList(response,CommonStaticValue.HASMORE,nextStart,"",csdnEntities);
             }
         }else{
             ReturnResultUtils.outWriteUnSuccessList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"没有更多了",csdnEntities);

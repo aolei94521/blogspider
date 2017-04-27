@@ -105,6 +105,12 @@ public class QuestionController extends BaseController{
         questionService.answerQuestion(questionId,userName,content,replayUserName,replayContent);
         ReturnResultUtils.outWriteSuccess(response,"回复成功","[]");
     }
+
+    /**
+     * 获取我回答过的问题列表，
+     * @param userName
+     * @param response
+     */
     @RequestMapping("myAnswer")
     public void myAnswerQuestion(@RequestParam(value = "userName") String userName,HttpServletResponse response){
         List<QuestionEntity> questionEntities = questionService.getMyAnswerQuestion(userName);
@@ -114,6 +120,12 @@ public class QuestionController extends BaseController{
             ReturnResultUtils.outWriteUnSuccessList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"暂未回答问题",questionEntities);
         }
     }
+
+    /**
+     * 获取答案列表
+     * @param questionId
+     * @param response
+     */
     @RequestMapping("getAnswer")
     public void getAnswers(@RequestParam(value = "questionId") int questionId,HttpServletResponse response){
         List<AnswerEntity> answerEntities = questionService.getAnswer(questionId);

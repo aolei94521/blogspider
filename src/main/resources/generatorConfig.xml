@@ -106,7 +106,7 @@
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
         </table>-->
-        <table tableName="tb_cnblogs_geek" domainObjectName="CSDNEntity"
+        <table tableName="tb_view_blog" domainObjectName="ViewBlogEntity"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

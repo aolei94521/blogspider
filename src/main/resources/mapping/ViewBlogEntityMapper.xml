@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aolei.spider.dao.ViewBlogEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.aolei.spider.entity.ViewBlogEntity" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column=" blogId" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="tbName" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="title" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="content" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="link" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="imagelink" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, " blogId", tbName, title, content, link, time, imagelink
+  </sql>
+  <insert id="insertSelective" parameterType="com.aolei.spider.entity.ViewBlogEntity" >
+    insert into tb_view_blog
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="blogid != null" >
+        " blogId",
+      </if>
+      <if test="tbname != null" >
+        tbName,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="link != null" >
+        link,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="imagelink != null" >
+        imagelink,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="blogid != null" >
+        #{blogid,jdbcType=INTEGER},
+      </if>
+      <if test="tbname != null" >
+        #{tbname,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="link != null" >
+        #{link,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="imagelink != null" >
+        #{imagelink,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aolei.spider.entity.ViewBlogEntity" >
+    update tb_view_blog
+    <set >
+      <if test="blogid != null" >
+        " blogId" = #{blogid,jdbcType=INTEGER},
+      </if>
+      <if test="tbname != null" >
+        tbName = #{tbname,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="link != null" >
+        link = #{link,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="imagelink != null" >
+        imagelink = #{imagelink,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

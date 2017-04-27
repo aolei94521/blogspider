@@ -107,7 +107,7 @@
   </select>
 
   <select id="getQuestionByName" resultType="com.aolei.spider.entity.QuestionEntity">
-    SELECT * FROM tb_question WHERE applyUserName = #{0}
+    SELECT * FROM tb_question WHERE applyUserName = #{0} AND status = 2
   </select>
 
   <select id="selectQuestionByQuestionId" parameterType="java.util.List" resultType="com.aolei.spider.entity.QuestionEntity">

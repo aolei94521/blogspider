@@ -67,16 +67,19 @@ public class QuestionServiceImpl extends BaseService implements QuestionService{
     }
 
     public int answerQuestion(int questionId, String userName, String content) {
+        Date date = new Date();
         AnswerEntity answerEntity = new AnswerEntity();
         answerEntity.setQuestionid(questionId);
         answerEntity.setAnswerusername(userName);
         answerEntity.setAnswercontent(content);
         answerEntity.setStatus(CommonStaticValue.NORMAL);
-        answerEntity.setReplaytime(new Date());
+        answerEntity.setReplaytime(date);
+        answerEntity.setCreatetime(date);
         return answerEntityMapper.insertSelective(answerEntity);
     }
 
     public int replayQuestion(int questionId, String userName, String content, String replayUserName, String replayContent) {
+        Date date = new Date();
         AnswerEntity answerEntity = new AnswerEntity();
         answerEntity.setQuestionid(questionId);
         answerEntity.setAnswerusername(userName);
@@ -84,7 +87,8 @@ public class QuestionServiceImpl extends BaseService implements QuestionService{
         answerEntity.setReplayusername(replayUserName);
         answerEntity.setReplaycontent(replayContent);
         answerEntity.setStatus(CommonStaticValue.NORMAL);
-        answerEntity.setReplaytime(new Date());
+        answerEntity.setReplaytime(date);
+        answerEntity.setCreatetime(date);
         return answerEntityMapper.insertSelective(answerEntity);
     }
 

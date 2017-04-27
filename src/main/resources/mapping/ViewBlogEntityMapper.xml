@@ -134,7 +134,7 @@
   </select>
 
   <delete id="deleteByRecordId">
-    DELETE FROM tb_view_blog WHERE userName=#{0} AND id = #{1}
+    DELETE FROM tb_view_blog WHERE userName=#{1} AND id = #{0}
   </delete>
 
   <delete id="deleteByUserName">

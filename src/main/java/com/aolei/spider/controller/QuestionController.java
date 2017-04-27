@@ -101,9 +101,17 @@ public class QuestionController extends BaseController{
      */
     @RequestMapping("answer")
     public void answerQuestion(@RequestParam(value = "questionId") int questionId,@RequestParam(value = "userName")String userName,@RequestParam(value = "content",required = false)String content,@RequestParam(value = "replayUserName",required = false)String replayUserName,@RequestParam(value = "replayContent",required = false)String replayContent,HttpServletResponse response){
-
-        questionService.answerQuestion(questionId,userName,content,replayUserName,replayContent);
-        ReturnResultUtils.outWriteSuccess(response,"回复成功","[]");
+        int result = 0;
+        if ((replayContent == null || replayContent.length() <= 0) && (replayUserName == null || replayUserName.length() <= 0)){
+            result = questionService.answerQuestion(questionId,userName,content);
+        }else{
+            result = questionService.replayQuestion(questionId,userName,content,replayUserName,replayContent);
+        }
+        if (result > 0){
+            ReturnResultUtils.outWriteSuccess(response,"评论成功","[]");
+        }else{
+            ReturnResultUtils.outWriteUnSuccess(response,"评论失败","[]");
+        }
     }
 
     /**

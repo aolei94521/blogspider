@@ -66,23 +66,22 @@ public class QuestionServiceImpl extends BaseService implements QuestionService{
         return questionEntityMapper.getQuestionByName(userName);
     }
 
-    public void answerQuestion(int questionId, String userName, String content,String replayUserName,String replayContent) {
-        answerEntity = new AnswerEntity();
+    public int answerQuestion(int questionId, String userName, String content) {
+        AnswerEntity answerEntity = new AnswerEntity();
         answerEntity.setQuestionid(questionId);
-        answerEntity.setCreatetime(new Date());
         answerEntity.setAnswerusername(userName);
-        if (content != null && content.length() != 0){
-            answerEntity.setAnswercontent(content);
-        }
-        if ((replayUserName != null && replayUserName.length() != 0) && (replayContent != null && replayContent.length() != 0)){
-            answerEntity.setReplayusername(replayUserName);
-            answerEntity.setReplaycontent(replayContent);
-            answerEntity.setReplaytime(new Date());
-            //answerEntityMapper.updateByPrimaryKeySelective(answerEntity);
-            //return ;
-        }
-        answerEntity.setStatus(CommonStaticValue.NORMAL);
-        answerEntityMapper.insertSelective(answerEntity);
+        answerEntity.setAnswercontent(content);
+        return answerEntityMapper.insertSelective(answerEntity);
+    }
+
+    public int replayQuestion(int questionId, String userName, String content, String replayUserName, String replayContent) {
+        AnswerEntity answerEntity = new AnswerEntity();
+        answerEntity.setQuestionid(questionId);
+        answerEntity.setAnswerusername(userName);
+        answerEntity.setAnswercontent(content);
+        answerEntity.setReplayusername(replayUserName);
+        answerEntity.setReplaycontent(replayContent);
+        return answerEntityMapper.insertSelective(answerEntity);
     }
 
     public List<QuestionEntity> getMyAnswerQuestion(String userName){

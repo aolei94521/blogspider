@@ -52,7 +52,18 @@ public interface QuestionService {
      * @param userName
      * @param content
      */
-    void answerQuestion(int questionId,String userName,String content,String replayUserName,String replayContent);
+    int answerQuestion(int questionId,String userName,String content);
+
+    /**
+     * 回复回答
+     * @param questionId
+     * @param userName
+     * @param content
+     * @param replayUserName
+     * @param replayContent
+     * @return
+     */
+    int replayQuestion(int questionId,String userName,String content,String replayUserName,String replayContent);
 
     /**
      * 查询我回答的问题

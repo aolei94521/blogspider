@@ -103,7 +103,7 @@
   </update>
 
   <select id="getAllQuestion" resultType="com.aolei.spider.entity.QuestionEntity">
-    SELECT * FROM tb_question WHERE id > #{0}  AND status = 1 LIMIT #{1} GROUP BY createTime DESC
+    SELECT * FROM tb_question WHERE id > #{0}  AND status = 1  GROUP BY createTime DESC LIMIT #{1}
   </select>
 
   <select id="getQuestionByName" resultType="com.aolei.spider.entity.QuestionEntity">

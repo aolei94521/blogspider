@@ -78,6 +78,8 @@ public class QuestionServiceImpl extends BaseService implements QuestionService{
             answerEntity.setReplayusername(replayUserName);
             answerEntity.setReplaycontent(replayContent);
             answerEntity.setReplaytime(new Date());
+            answerEntityMapper.updateByPrimaryKeySelective(answerEntity);
+            return ;
         }
         answerEntity.setStatus(CommonStaticValue.NORMAL);
         answerEntityMapper.insertSelective(answerEntity);

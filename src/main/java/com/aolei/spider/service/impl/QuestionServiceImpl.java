@@ -86,6 +86,7 @@ public class QuestionServiceImpl extends BaseService implements QuestionService{
     public List<QuestionEntity> getMyAnswerQuestion(String userName){
         List<QuestionEntity> questionEntities = new ArrayList<QuestionEntity>();
         List<Integer> questionIdList = answerEntityMapper.selectQuestionIdByUserName(userName);
+        logger.info("ssssssssssssss"+questionIdList.toString());
         List<Integer> tempList = new ArrayList<Integer>();
         if (questionIdList != null && !questionIdList.isEmpty()){
             Set<Integer> questionIdSet = new HashSet<Integer>();

@@ -103,7 +103,7 @@
   </update>
 
   <select id="getAllQuestion" resultType="com.aolei.spider.entity.QuestionEntity">
-    SELECT * FROM tb_question WHERE id > #{0} LIMIT #{1}
+    SELECT * FROM tb_question WHERE id > #{0} LIMIT #{1} AND status = 1
   </select>
 
   <select id="getQuestionByName" resultType="com.aolei.spider.entity.QuestionEntity">

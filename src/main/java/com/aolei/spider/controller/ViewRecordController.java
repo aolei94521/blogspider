@@ -47,9 +47,9 @@ public class ViewRecordController extends BaseController{
     public void deleteViewRecord(@RequestParam(value="recordId") int recordId,@RequestParam(value="userName") String userName,HttpServletResponse response){
         int result = 0;
         if (recordId == -1){
-            viewRecordService.deleteAllViewReocrd(userName);
+            result = viewRecordService.deleteAllViewReocrd(userName);
         }else{
-            viewRecordService.deleteViewRecord(recordId,userName);
+            result = viewRecordService.deleteViewRecord(recordId,userName);
         }
         if (result > 0){
             ReturnResultUtils.outWriteSuccess(response,"删除成功","[]");

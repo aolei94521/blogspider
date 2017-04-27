@@ -9,6 +9,14 @@ public class CodeCeoEntity {
 
     private String link;
 
+    public String getImagelink() {
+        return imagelink;
+    }
+
+    public void setImagelink(String imagelink) {
+        this.imagelink = imagelink;
+    }
+
     private String imagelink;
 
     private String tbName="tb_manong";
@@ -64,14 +72,6 @@ public class CodeCeoEntity {
 
     public void setLink(String link) {
         this.link = link == null ? null : link.trim();
-    }
-
-    public String getIamgelink() {
-        return imagelink;
-    }
-
-    public void setIamgelink(String iamgelink) {
-        this.imagelink = iamgelink == null ? null : iamgelink.trim();
     }
 
     public String getTbName() {

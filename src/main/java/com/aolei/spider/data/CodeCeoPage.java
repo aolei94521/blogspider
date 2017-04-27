@@ -28,7 +28,7 @@ public class CodeCeoPage extends CommonLoggerUtil implements PageProcessor{
             codeCeoEntity.setTitle(CommonUtils.getElementValue(page.getHtml().xpath("//h3/a/text()").all(),index));
             codeCeoEntity.setLink(CommonUtils.getElementValue(page.getHtml().xpath("//h3/a/@href").all(),index));
             codeCeoEntity.setContent(CommonUtils.getElementValue(page.getHtml().xpath("div[@class='note']/text()").all(),index));
-            codeCeoEntity.setIamgelink(CommonUtils.getElementValue(page.getHtml().xpath("//img/@src").all(),index));
+            codeCeoEntity.setImagelink(CommonUtils.getElementValue(page.getHtml().xpath("//img/@src").all(),index));
             codeCeoEntities.add(codeCeoEntity);
         }
         page.putField("codeCeoEntities",codeCeoEntities);

@@ -19,7 +19,13 @@ public class ViewBlogEntity {
 
     private String imagelink;
 
-    public ViewBlogEntity(Integer id, Integer blogid, String tbname, String title, String content, String link, Date time, String imagelink) {
+    private String author;
+
+    private String userName;
+
+    private Date viewTime;
+
+    public ViewBlogEntity(Integer id, Integer blogid, String tbname, String title, String content, String link, Date time, String imagelink, String author,String userName,Date viewTime) {
         this.id = id;
         this.blogid = blogid;
         this.tbname = tbname;
@@ -28,6 +34,9 @@ public class ViewBlogEntity {
         this.link = link;
         this.time = time;
         this.imagelink = imagelink;
+        this.author = author;
+        this.userName = userName;
+        this.viewTime = viewTime;
     }
 
     public ViewBlogEntity() {
@@ -96,5 +105,29 @@ public class ViewBlogEntity {
 
     public void setImagelink(String imagelink) {
         this.imagelink = imagelink == null ? null : imagelink.trim();
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author == null ? null : author.trim();
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public Date getViewTime() {
+        return viewTime;
+    }
+
+    public void setViewTime(Date viewTime) {
+        this.viewTime = viewTime;
     }
 }

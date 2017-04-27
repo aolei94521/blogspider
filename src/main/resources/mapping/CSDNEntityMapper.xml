@@ -82,4 +82,7 @@
   <select id="getCSDNList" resultType="com.aolei.spider.entity.CSDNEntity">
     SELECT * FROM tb_cnblogs_geek WHERE id > #{0} LIMIT #{1}
   </select>
+  <select id="selectById" resultType="com.aolei.spider.entity.CSDNEntity">
+    SELECT * FROM tb_cnblogs_geek WHERE id = #{0}
+  </select>
 </mapper>

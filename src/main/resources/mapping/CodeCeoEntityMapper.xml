@@ -70,6 +70,10 @@
   </update>
 
   <select id="getCodeCeoList" resultType="com.aolei.spider.entity.CodeCeoEntity">
-    SELECT * FROM tb_manong WHERE id > #{0} LIMIT #{1}
+  SELECT * FROM tb_manong WHERE id > #{0} LIMIT #{1}
+</select>
+
+  <select id="selectById" resultType="com.aolei.spider.entity.CodeCeoEntity">
+    SELECT * FROM tb_manong WHERE id = #{0}
   </select>
 </mapper>

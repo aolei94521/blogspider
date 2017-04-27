@@ -9,7 +9,7 @@ public interface ViewRecordEntityMapper {
 
     int updateByPrimaryKeySelective(ViewRecordEntity record);
 
-    int deleteByRecordId(int recordId);
+    int deleteByRecordId(int recordId,String userNmae);
 
     int deleteByUserName(String userName);
 }

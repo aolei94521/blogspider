@@ -70,10 +70,14 @@
   </update>
 
   <delete id="deleteByRecordId">
-    DELETE FROM tb_view_record WHERE id = #{0}
+    DELETE FROM tb_view_record WHERE id = #{0} AND userName=#{1}
   </delete>
 
   <delete id="deleteByUserName">
     DELETE FROM tb_view_record WHERE userName=#{0}
   </delete>
+
+  <select id="selectAll" resultType="com.aolei.spider.entity.ViewBlogEntity">
+    se
+  </select>
 </mapper>

@@ -51,4 +51,7 @@
     <select id="getTuiKuList"  resultType="com.aolei.spider.entity.TuiKuEntity">
         SELECT * FROM tb_tuiku WHERE id > #{0} LIMIT #{1}
     </select>
+  <select id="selectById" resultType="com.aolei.spider.entity.TuiKuEntity">
+        SELECT * FROM tb_tuiku WHERE id = #{0}
+  </select>
 </mapper>

@@ -47,4 +47,6 @@ public interface CSDNEntityMapper {
     int updateByPrimaryKey(CSDNEntity record);
 
     List<CSDNEntity> getCSDNList(int start, int count);
+
+    CSDNEntity selectById(int id);
 }

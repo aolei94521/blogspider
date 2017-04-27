@@ -12,4 +12,6 @@ public interface CNBlogsEntityMapper {
     int updateByPrimaryKeySelective(CNBlogsEntity record);
 
     List<CNBlogsEntity> getCnblogList(int start,int count);
+
+    CNBlogsEntity selectById(int id);
 }

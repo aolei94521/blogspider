@@ -12,4 +12,5 @@ public interface JueJinEntityMapper {
     int updateByPrimaryKeySelective(JueJinEntity record);
 
     List<JueJinEntity> getJueJinList(int start,int count);
+    JueJinEntity selectById(int id);
 }

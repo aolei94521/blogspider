@@ -1,5 +1,6 @@
 package com.aolei.spider.controller;
 
+import com.aolei.spider.entity.ViewBlogEntity;
 import com.aolei.spider.service.ViewRecordService;
 import com.aolei.spider.util.ReturnResultUtils;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/4/18.
@@ -42,8 +44,13 @@ public class ViewRecordController extends BaseController{
      * @param response
      */
     @RequestMapping(value = "deleteReocrd",method = {RequestMethod.GET})
-    public void deleteViewRecord(@RequestParam(value="recordId") int recordId,HttpServletResponse response){
-        int result = viewRecordService.deleteViewRecord(recordId);
+    public void deleteViewRecord(@RequestParam(value="recordId") int recordId,@RequestParam(value="userName") String userName,HttpServletResponse response){
+        int result = 0;
+        if (recordId == -1){
+            viewRecordService.deleteAllViewReocrd(userName);
+        }else{
+            viewRecordService.deleteViewRecord(recordId,userName);
+        }
         if (result > 0){
             ReturnResultUtils.outWriteSuccess(response,"删除成功","[]");
         }else{
@@ -56,14 +63,16 @@ public class ViewRecordController extends BaseController{
      * @param userName
      * @param response
      */
-    @RequestMapping(value = "deleteAll",method = {RequestMethod.GET})
-    public void deleteAllRecord(@RequestParam(value="userName") String userName,HttpServletResponse response){
-        int result = viewRecordService.deleteAllViewReocrd(userName);
-        if (result > 0){
-            ReturnResultUtils.outWriteSuccess(response,"删除成功","[]");
+    @RequestMapping(value = "allRecord",method = {RequestMethod.GET})
+    public void getAllRecord(@RequestParam(value="userName") String userName,HttpServletResponse response){
+        List<ViewBlogEntity> viewBlogEntities = viewRecordService.getAllViewRecord(userName);
+        if (viewBlogEntities != null && !viewBlogEntities.isEmpty()){
+            ReturnResultUtils.outWriteSuccess(response,"",viewBlogEntities);
         }else{
-            ReturnResultUtils.outWriteUnSuccess(response,"删除失败","[]");
+            ReturnResultUtils.outWriteUnSuccess(response,"暂无记录","[]");
         }
     }
+
+
 
 }

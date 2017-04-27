@@ -12,4 +12,6 @@ public interface CodeCeoEntityMapper {
     int updateByPrimaryKeySelective(CodeCeoEntity record);
 
     List<CodeCeoEntity> getCodeCeoList(int start,int count);
+
+    CodeCeoEntity selectById(int id);
 }

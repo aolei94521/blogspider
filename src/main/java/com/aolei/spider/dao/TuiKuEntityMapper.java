@@ -26,4 +26,6 @@ public interface TuiKuEntityMapper {
      * @return
      */
     List<TuiKuEntity> getTuiKuList(int start,int count);
+
+    TuiKuEntity selectById(int id);
 }

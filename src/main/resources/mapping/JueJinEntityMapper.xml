@@ -70,6 +70,9 @@
   </update>
 
   <select id="getJueJinList" resultType="com.aolei.spider.entity.JueJinEntity">
-     SELECT * FROM tb_juejin WHERE id > #{0} LIMIT #{1}
+  SELECT * FROM tb_juejin WHERE id > #{0} LIMIT #{1}
+</select>
+  <select id="selectById" resultType="com.aolei.spider.entity.JueJinEntity">
+    SELECT * FROM tb_juejin WHERE id = #{0}
   </select>
 </mapper>

@@ -72,4 +72,7 @@
   <select id="getCnblogList" resultType="com.aolei.spider.entity.CNBlogsEntity">
     SELECT * FROM tb_cnblogs WHERE id > #{0} LIMIT #{1}
   </select>
+  <select id="selectById" resultType="com.aolei.spider.entity.CNBlogsEntity">
+    SELECT * FROM tb_cnblogs WHERE id = #{0}
+  </select>
 </mapper>

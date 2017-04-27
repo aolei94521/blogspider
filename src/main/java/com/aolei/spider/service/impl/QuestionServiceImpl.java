@@ -71,6 +71,8 @@ public class QuestionServiceImpl extends BaseService implements QuestionService{
         answerEntity.setQuestionid(questionId);
         answerEntity.setAnswerusername(userName);
         answerEntity.setAnswercontent(content);
+        answerEntity.setStatus(CommonStaticValue.NORMAL);
+        answerEntity.setReplaytime(new Date());
         return answerEntityMapper.insertSelective(answerEntity);
     }
 
@@ -81,6 +83,8 @@ public class QuestionServiceImpl extends BaseService implements QuestionService{
         answerEntity.setAnswercontent(content);
         answerEntity.setReplayusername(replayUserName);
         answerEntity.setReplaycontent(replayContent);
+        answerEntity.setStatus(CommonStaticValue.NORMAL);
+        answerEntity.setReplaytime(new Date());
         return answerEntityMapper.insertSelective(answerEntity);
     }
 

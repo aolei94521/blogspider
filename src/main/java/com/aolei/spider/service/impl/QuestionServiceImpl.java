@@ -26,6 +26,7 @@ public class QuestionServiceImpl extends BaseService implements QuestionService{
     AnswerEntityMapper answerEntityMapper;
     private QuestionEntity questionEntity;
     private AnswerEntity answerEntity;
+
     public void applyQuestion(String userName, String questionTitle, String questionContent) {
         questionEntity = new QuestionEntity();
         questionEntity.setApplyusername(userName);

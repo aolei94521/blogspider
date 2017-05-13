@@ -101,4 +101,8 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="getCloudList" resultType="com.aolei.spider.entity.CloudEntity">
+    SELECT * FROM tb_cloud WHERE id > #{start} LIMIT #{count}
+  </select>
 </mapper>

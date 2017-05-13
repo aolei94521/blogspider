@@ -68,6 +68,15 @@ public class UserBlogLikeAndCollectController extends BaseController{
             ReturnResultUtils.outWriteUnSuccess(response,"评论失败","[]");
         }
     }
+
+    /**
+     * 获取评论列表
+     * @param blogId
+     * @param tbName
+     * @param start
+     * @param count
+     * @param response
+     */
     @RequestMapping(value = "getComments",method = {RequestMethod.GET})
     public void commentList(@RequestParam(value = "blogId") int blogId,@RequestParam(value = "tbName") String tbName,@RequestParam(value = "start") int start,@RequestParam(value = "count") int count,HttpServletResponse response){
         List<CommentEntity> commentEntityList = blogCommentService.getCommentList(blogId,tbName,start,count);

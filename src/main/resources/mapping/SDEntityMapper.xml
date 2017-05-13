@@ -101,4 +101,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="getSDList" resultType="com.aolei.spider.entity.SDEntity">
+    SELECT  * FROM tb_sd WHERE id > #{start} LIMIT #{count}
+  </select>
 </mapper>

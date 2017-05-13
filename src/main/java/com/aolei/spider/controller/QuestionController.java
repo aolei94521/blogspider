@@ -31,7 +31,7 @@ public class QuestionController extends BaseController{
      * @param response
      */
     @RequestMapping(value = "addQuestion",method = {RequestMethod.GET})
-    public void applyQuestioin(@RequestParam(value = "userName") String userName, @RequestParam(value = "title") String title, @RequestParam(value = "content") String content, HttpServletResponse response){
+    public void applyQuestion(@RequestParam(value = "userName") String userName, @RequestParam(value = "title") String title, @RequestParam(value = "content") String content, HttpServletResponse response){
         questionService.applyQuestion(userName,title,content);
         ReturnResultUtils.outWriteSuccess(response,"发布成功","[]");
     }

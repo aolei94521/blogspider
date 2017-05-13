@@ -9,6 +9,7 @@ import com.aolei.spider.util.ReturnResultUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -55,5 +56,14 @@ public class InformationController extends BaseController {
         }else{
               ReturnResultUtils.outWriteUnSuccessList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"没有更多了",informationEntities);
           }
+    }
+    @RequestMapping(value = "getList",method = {RequestMethod.GET})
+    public void getInfoList(@RequestParam(value="start") int start,@RequestParam(value = "count")int count,@RequestParam(value = "type") int type, HttpServletResponse response){
+        List<?> infoList = service.getInfoList(start,count,type);
+        if (infoList != null && !infoList.isEmpty()){
+           ReturnResultUtils.outWriteSuccess(response,"",infoList);
+        }else{
+            ReturnResultUtils.outWriteUnSuccess(response,"暂无资讯",infoList);
+        }
     }
 }

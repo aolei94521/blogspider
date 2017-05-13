@@ -101,4 +101,8 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="getMobileList" resultType="com.aolei.spider.entity.MobileEntity">
+    SELECT * FROM tb_mobile WHERE id > #{start} LIMIT #{count}
+  </select>
 </mapper>

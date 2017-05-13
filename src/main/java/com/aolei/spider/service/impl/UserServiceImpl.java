@@ -18,6 +18,7 @@ public class UserServiceImpl implements UserService{
     UserEntityMapper mapper;
     public int userRegist(String userName, String userPwd) {
         UserEntity userEntity = new UserEntity();
+        //获取客户端传过来的信息，写入到数据库
         userEntity.setUsername(userName);
         userEntity.setUserpwd(userPwd);
         return mapper.insertSelective(userEntity);

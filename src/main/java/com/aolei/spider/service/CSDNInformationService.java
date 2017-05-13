@@ -16,4 +16,7 @@ public interface CSDNInformationService {
     List<InformationEntity> getAllInformation();
 
     List<InformationEntity> getInformationList(int start,int count);
+
+    List<?> getInfoList(int start,int count,int type);
+
 }

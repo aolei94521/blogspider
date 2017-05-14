@@ -12,7 +12,7 @@
   <sql id="Base_Column_List" >
     id, key, userName, createTime
   </sql>
-  <insert id="insertSelective" parameterType="com.aolei.spider.entity.SearchRecordEntity">
+  <insert id="insertSelective" parameterType="com.aolei.spider.entity.SearchRecordEntity" >
     INSERT INTO tb_search_record (key,username,createtime) VALUES (#{key},#{username},#{createtime})
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.aolei.spider.entity.SearchRecordEntity" >

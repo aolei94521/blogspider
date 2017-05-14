@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2017/4/20.
@@ -29,5 +30,9 @@ public class CodeCeoServiceImpl implements CodeCeoService{
            count = 20;
        }
        return mapper.getCodeCeoList(start,count);
+    }
+
+    public List<CodeCeoEntity> search(Map<String, Object> params) {
+        return mapper.search(params);
     }
 }

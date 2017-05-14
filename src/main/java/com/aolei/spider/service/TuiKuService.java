@@ -4,6 +4,7 @@ import com.aolei.spider.entity.TuiKuEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2017/4/9.
@@ -23,4 +24,6 @@ public interface TuiKuService {
     List<TuiKuEntity> getAllTuiKu();
 
     List<TuiKuEntity> getTuiKuList(int start,int count);
+
+    List<TuiKuEntity> search(Map<String,Object> params);
 }

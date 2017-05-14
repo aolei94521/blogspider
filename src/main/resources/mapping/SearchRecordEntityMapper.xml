@@ -58,4 +58,8 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="searchRecord" resultType="com.aolei.spider.entity.SearchRecordEntity">
+    SELECT * FROM tb_search_record WHERE userName=#{0}
+  </select>
 </mapper>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2017/4/19.
@@ -30,5 +31,9 @@ public class JuejinServiceImpl extends BaseService implements JueJinService{
             count = 20;
         }
         return jueJinEntityMapper.getJueJinList(start,count);
+    }
+
+    public List<JueJinEntity> search(Map<String, Object> params) {
+        return jueJinEntityMapper.search(params);
     }
 }

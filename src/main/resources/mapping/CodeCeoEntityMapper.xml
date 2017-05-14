@@ -76,4 +76,7 @@
   <select id="selectById" resultType="com.aolei.spider.entity.CodeCeoEntity">
     SELECT * FROM tb_manong WHERE id = #{0}
   </select>
+  <select id="search" resultType="com.aolei.spider.entity.CodeCeoEntity">
+    SELECT * FROM tb_manong WHERE id > #{start} AND title LIKE concat("%",#{key},"%") LIMIT #{count}
+  </select>
 </mapper>

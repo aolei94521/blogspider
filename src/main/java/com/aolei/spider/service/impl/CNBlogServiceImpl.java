@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2017/4/19.
@@ -29,6 +30,10 @@ public class CNBlogServiceImpl implements CNBlogService{
             count = 20;
         }
         return mapper.getCnblogList(start,count);
+    }
+
+    public List<CNBlogsEntity> search(Map<String,Object> params) {
+        return mapper.search(params);
     }
 
 

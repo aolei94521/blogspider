@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2017/4/9.
@@ -32,5 +33,9 @@ public class TuiKuServiceImpl extends BaseService implements TuiKuService{
             count = 20;
         }
         return mapper.getTuiKuList(start,count);
+    }
+
+    public List<TuiKuEntity> search(Map<String, Object> params) {
+        return mapper.search(params);
     }
 }

@@ -3,6 +3,7 @@ package com.aolei.spider.dao;
 import com.aolei.spider.entity.TuiKuEntity;
 
 import java.util.List;
+import java.util.Map;
 
 public interface TuiKuEntityMapper {
 
@@ -28,4 +29,6 @@ public interface TuiKuEntityMapper {
     List<TuiKuEntity> getTuiKuList(int start,int count);
 
     TuiKuEntity selectById(int id);
+
+    List<TuiKuEntity> search(Map<String,Object> params);
 }

@@ -85,4 +85,8 @@
   <select id="selectById" resultType="com.aolei.spider.entity.CSDNEntity">
     SELECT * FROM tb_cnblogs_geek WHERE id = #{0}
   </select>
+
+  <select id="search" resultType="com.aolei.spider.entity.CSDNEntity">
+    SELECT * FROM tb_cnblogs_geek WHERE id > #{start} AND title LIKE concat("%",#{key},"%") LIMIT #{count}
+  </select>
 </mapper>

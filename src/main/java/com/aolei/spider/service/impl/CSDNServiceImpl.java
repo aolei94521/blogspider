@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2017/4/26.
@@ -24,5 +25,9 @@ public class CSDNServiceImpl extends BaseService implements CSDNService {
             count = 20;
         }
         return mapper.getCSDNList(start,count);
+    }
+
+    public List<CSDNEntity> search(Map<String, Object> params) {
+        return mapper.search(params);
     }
 }

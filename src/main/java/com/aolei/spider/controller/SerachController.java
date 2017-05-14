@@ -25,9 +25,9 @@ public class SerachController {
         List<?> resultList = searchService.search(start,count,word,tbName);
         if (resultList != null && !resultList.isEmpty()){
             if (resultList.size() < count){
-                ReturnResultUtils.outWriteUnSuccessList(response, CommonStaticValue.HASMORE,CommonStaticValue.NOSTART,"",resultList);
+                ReturnResultUtils.outWriteSuccessList(response, CommonStaticValue.HASMORE,CommonStaticValue.NOSTART,"",resultList);
             }else{
-                ReturnResultUtils.outWriteUnSuccessList(response, CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"",resultList);
+                ReturnResultUtils.outWriteSuccessList(response, CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"",resultList);
             }
         }else {
             ReturnResultUtils.outWriteUnSuccessList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"暂无结果",resultList);
@@ -42,7 +42,7 @@ public class SerachController {
     public void getSearchRecord(@RequestParam(value = "userName")String userName,HttpServletResponse response){
         List<SearchRecordEntity> list = searchService.getRecord(userName);
         if (list != null && !list.isEmpty()){
-            ReturnResultUtils.outWriteUnSuccess(response,"",list);
+            ReturnResultUtils.outWriteSuccess(response,"",list);
         }else{
             ReturnResultUtils.outWriteUnSuccess(response,"暂无记录",list);
         }

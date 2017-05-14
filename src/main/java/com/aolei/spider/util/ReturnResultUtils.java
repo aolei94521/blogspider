@@ -23,10 +23,11 @@ public class ReturnResultUtils {
             outWriter = response.getWriter();
             if (msg.equals("注册成功")){
                 jsonResultUtils.setMsg(msg);
+                jsonResultUtils.setStatus(1);
                 result = JSON.toJSONString(jsonResultUtils);
             }else{
                 jsonResultUtils.setMsg(msg);
-                jsonResultUtils.setStatus(CommonStaticValue.ERRORSTATUS);
+                jsonResultUtils.setStatus(0);
                 result = JSON.toJSONString(jsonResultUtils);
             }
             outWriter.write(result);

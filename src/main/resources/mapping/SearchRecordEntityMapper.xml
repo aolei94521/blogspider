@@ -12,36 +12,8 @@
   <sql id="Base_Column_List" >
     id, key, userName, createTime
   </sql>
-  <insert id="insertSelective" parameterType="com.aolei.spider.entity.SearchRecordEntity" >
-    insert into tb_search_record
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="key != null" >
-        key,
-      </if>
-      <if test="username != null" >
-        userName,
-      </if>
-      <if test="createtime != null" >
-        createTime,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="key != null" >
-        #{key,jdbcType=VARCHAR},
-      </if>
-      <if test="username != null" >
-        #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null" >
-        #{createtime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
+  <insert id="insertSelective" parameterType="com.aolei.spider.entity.SearchRecordEntity">
+    INSERT INTO tb_search_record set(key,userName,createTime) VALUES (#{key},#{userName},#{createName})
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.aolei.spider.entity.SearchRecordEntity" >
     update tb_search_record

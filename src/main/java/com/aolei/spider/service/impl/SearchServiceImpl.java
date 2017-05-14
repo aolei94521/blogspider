@@ -56,7 +56,7 @@ public class SearchServiceImpl extends BaseService implements SearchService{
         mapper.insertSelective(recordEntity);
     }
 
-    public void getRecord(String userName) {
-        mapper.searchRecord(userName);
+    public List<SearchRecordEntity> getRecord(String userName) {
+        return mapper.searchRecord(userName);
     }
 }

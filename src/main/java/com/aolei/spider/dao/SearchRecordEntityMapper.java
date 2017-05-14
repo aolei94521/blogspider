@@ -2,6 +2,8 @@ package com.aolei.spider.dao;
 
 import com.aolei.spider.entity.SearchRecordEntity;
 
+import java.util.List;
+
 public interface SearchRecordEntityMapper {
 
 
@@ -10,6 +12,6 @@ public interface SearchRecordEntityMapper {
 
     int updateByPrimaryKeySelective(SearchRecordEntity record);
 
-    int searchRecord(String userName);
+    List<SearchRecordEntity> searchRecord(String userName);
 
 }

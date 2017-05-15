@@ -5,15 +5,15 @@ import java.util.Date;
 public class SearchRecordEntity {
     private Integer id;
 
-    private String key;
+    private String word;
 
     private String username;
 
     private Date createtime;
 
-    public SearchRecordEntity(Integer id, String key, String username, Date createtime) {
+    public SearchRecordEntity(Integer id, String word, String username, Date createtime) {
         this.id = id;
-        this.key = key;
+        this.word = word;
         this.username = username;
         this.createtime = createtime;
     }
@@ -30,12 +30,12 @@ public class SearchRecordEntity {
         this.id = id;
     }
 
-    public String getKey() {
-        return key;
+    public String getWord() {
+        return word;
     }
 
-    public void setKey(String key) {
-        this.key = key == null ? null : key.trim();
+    public void setWord(String word) {
+        this.word = word == null ? null : word.trim();
     }
 
     public String getUsername() {

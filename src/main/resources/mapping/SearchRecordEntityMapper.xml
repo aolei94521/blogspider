@@ -1,55 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aolei.spider.dao.SearchRecordEntityMapper">
-  <resultMap id="BaseResultMap" type="com.aolei.spider.entity.SearchRecordEntity">
-    <constructor>
-      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="key" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="userName" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="createTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List">
-    id, key, userName, createTime
-  </sql>
-  <insert id="insertSelective" parameterType="com.aolei.spider.entity.SearchRecordEntity">
-    insert into tb_search_record
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="key != null">
-        key,
-      </if>
-      <if test="username != null">
-        userName,
-      </if>
-      <if test="createtime != null">
-        createTime,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="key != null">
-        #{key,jdbcType=VARCHAR},
-      </if>
-      <if test="username != null">
-        #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null">
-        #{createtime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
+  <insert id="insertSelective" parameterType="com.aolei.spider.entity.SearchRecordEntity" >
+    INSERT INTO tb_search_record (word,username,createtime) VALUES (#{word},#{username},#{createtime})
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.aolei.spider.entity.SearchRecordEntity">
     update tb_search_record
     <set>
-      <if test="key != null">
-        key = #{key,jdbcType=VARCHAR},
+      <if test="word != null">
+        key = #{word,jdbcType=VARCHAR},
       </if>
-      <if test="username != null">
+      <if test="username != nulwordl">
         userName = #{username,jdbcType=VARCHAR},
       </if>
       <if test="createtime != null">

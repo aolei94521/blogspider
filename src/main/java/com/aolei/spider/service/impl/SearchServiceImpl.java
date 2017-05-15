@@ -51,7 +51,7 @@ public class SearchServiceImpl extends BaseService implements SearchService{
     public void addRecord(String userName, String word) {
         SearchRecordEntity recordEntity = new SearchRecordEntity();
         recordEntity.setCreatetime(new Date());
-        recordEntity.setKey(word);
+        recordEntity.setWord(word);
         recordEntity.setUsername(userName);
         mapper.insertSelective(recordEntity);
     }

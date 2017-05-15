@@ -13,5 +13,4 @@ public interface SearchRecordEntityMapper {
     int updateByPrimaryKeySelective(SearchRecordEntity record);
 
     List<SearchRecordEntity> searchRecord(String userName);
-
 }

@@ -17,7 +17,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/blog")
-public class SerachController {
+public class SerachController extends BaseController{
     @Resource
     private SearchService searchService;
     @RequestMapping("search")
@@ -35,6 +35,7 @@ public class SerachController {
     }
     @RequestMapping("addSearchRecord")
     public void addRecord(@RequestParam(value = "userName")String userName, @RequestParam(value = "word")String word,HttpServletResponse response){
+        logger.info("AOLEIDEBUG"+userName+word);
         searchService.addRecord(userName,word);
         ReturnResultUtils.outWriteSuccess(response,"","");
     }

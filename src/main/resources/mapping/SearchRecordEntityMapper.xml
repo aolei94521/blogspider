@@ -22,6 +22,6 @@
 
 
   <select id="searchRecord" resultType="com.aolei.spider.entity.SearchRecordEntity">
-    SELECT * FROM tb_search_record WHERE userName=#{0}
+    SELECT * FROM tb_search_record WHERE userName=#{0} ORDER BY createtime DESC
   </select>
 </mapper>

@@ -33,6 +33,7 @@ public class QuestionController extends BaseController{
     @RequestMapping(value = "addQuestion",method = {RequestMethod.GET})
     public void applyQuestion(@RequestParam(value = "userName") String userName, @RequestParam(value = "title") String title, @RequestParam(value = "content") String content, HttpServletResponse response){
         questionService.applyQuestion(userName,title,content);
+        logger.info("title=========="+title);
         ReturnResultUtils.outWriteSuccess(response,"发布成功","[]");
     }
 

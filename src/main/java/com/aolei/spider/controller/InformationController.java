@@ -61,10 +61,10 @@ public class InformationController extends BaseController {
     public void getInfoList(@RequestParam(value="start") int start,@RequestParam(value = "count")int count,@RequestParam(value = "type") int type, HttpServletResponse response){
         List<?> infoList = service.getInfoList(start,count,type);
         if (infoList != null && !infoList.isEmpty()){
-            if (infoList.size() > count){
-               ReturnResultUtils.outWriteUnSuccessList(response,CommonStaticValue.HASMORE,CommonStaticValue.NOSTART,"",infoList);
+            if (infoList.size() >= count){
+               ReturnResultUtils.outWriteSuccessList(response,CommonStaticValue.HASMORE,CommonStaticValue.NOSTART,"",infoList);
             }else{
-                ReturnResultUtils.outWriteUnSuccessList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"",infoList);
+                ReturnResultUtils.outWriteSuccessList(response,CommonStaticValue.NOMORE,CommonStaticValue.NOSTART,"",infoList);
             }
         }else{
             ReturnResultUtils.outWriteUnSuccess(response,"暂无资讯",infoList);
